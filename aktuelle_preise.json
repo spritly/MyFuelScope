@@ -1,0 +1,56 @@
+[
+    {
+        "city":  "Wiener Neustadt",
+        "name":  "Turmöl B54",
+        "station_id":  1471187,
+        "postal_code":  "2700",
+        "address":  "Günser Straße 28",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.769
+    },
+    {
+        "city":  "Wiener Neustadt",
+        "name":  "Avanti Metro",
+        "station_id":  1126532,
+        "postal_code":  "2700",
+        "address":  "Neunkirchner Straße 118",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.771
+    },
+    {
+        "city":  "Wiener Neustadt",
+        "name":  "Avanti West",
+        "station_id":  1354801,
+        "postal_code":  "2700",
+        "address":  "Puchberger Straße 44",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.771
+    },
+    {
+        "city":  "Wiener Neustadt",
+        "name":  "Jet B54",
+        "station_id":  1354682,
+        "postal_code":  "2700",
+        "address":  "Günser Straße 92",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.775
+    },
+    {
+        "city":  "Wiener Neustadt",
+        "name":  "Jet West",
+        "station_id":  1354928,
+        "postal_code":  "2700",
+        "address":  "Puchberger Straße 1",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.775
+    },
+    {
+        "city":  "Lanzenkirchen",
+        "name":  "BP Frohsdorf",
+        "station_id":  35847,
+        "postal_code":  "2821",
+        "address":  "Wiener Neustädter Straße 5",
+        "captured_at":  "2026-10-24 14:00:02",
+        "price_eur":  1.779
+    }
+]
