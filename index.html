@@ -277,27 +277,90 @@ function drawChart(svgId,metaId,points,period){
   if(min===max){min-=0.01;max+=0.01;}
   const left=52,right=485,top=18,bottom=178;
   const t=valid.map(p=>new Date(String(p.captured_at).replace(" ","T")));
-  const ts=t.map(d=>d.getTime()).filter(Number.isFinite);
-  if(!ts.length){
+  const validTimes=t.map(d=>d.getTime()).filter(Number.isFinite);
+  if(!validTimes.length){
     svg.append(svgNode("text",{x:250,y:105,"text-anchor":"middle",fill:"#64748b","font-size":14},"Zeitangaben ungültig"));
     el(metaId).textContent="Verlauf derzeit nicht darstellbar.";
     return;
   }
-  const tmin=Math.min(...ts),tmax=Math.max(...ts);
-  const x=i=>tmax===tmin?(left+right)/2:left+(t[i].getTime()-tmin)/(tmax-tmin)*(right-left);
+
+  let tmin,tmax,tickTimes=[];
+  if(period==="today"){
+    const dayStart=new Date();
+    dayStart.setHours(0,0,0,0);
+    const dayEnd=new Date(dayStart);
+    dayEnd.setDate(dayEnd.getDate()+1);
+    tmin=dayStart.getTime();
+    tmax=dayEnd.getTime();
+    for(let hour=0;hour<=24;hour+=3){
+      tickTimes.push({time:tmin+hour*60*60*1000,label:String(hour).padStart(2,"0")+":00",showLabel:true,edge:hour===0?"start":hour===24?"end":null});
+    }
+  }else{
+    const firstDate=new Date(Math.min(...validTimes));
+    firstDate.setHours(0,0,0,0);
+    const lastDate=new Date(Math.max(...validTimes));
+    lastDate.setHours(0,0,0,0);
+    const rangeStart=firstDate.getTime();
+    const rangeEnd=lastDate.getTime()+24*60*60*1000;
+    tmin=rangeStart;
+    tmax=rangeEnd;
+    const sixHours=6*60*60*1000;
+    for(let time=tmin,index=0;time<=tmax;time+=sixHours,index++){
+      const tickDate=new Date(time);
+      tickTimes.push({
+        time,
+        dateLabel:tickDate.toLocaleDateString("de-AT",{day:"2-digit",month:"2-digit"}),
+        timeLabel:tickDate.toLocaleTimeString("de-AT",{hour:"2-digit",minute:"2-digit",hour12:false}),
+        showLabel:tickDate.getHours()===0,
+        edge:time===tmin?"start":time===tmax?"end":null
+      });
+    }
+  }
+
+  const xTime=time=>tmax===tmin?(left+right)/2:left+(time-tmin)/(tmax-tmin)*(right-left);
+  const x=i=>xTime(t[i].getTime());
   const y=v=>bottom-(v-min)/(max-min)*(bottom-top);
+
+  for(const tick of tickTimes){
+    const xx=xTime(tick.time);
+    svg.append(svgNode("line",{
+      x1:xx,y1:top,x2:xx,y2:bottom,
+      stroke:period==="week" && new Date(tick.time).getHours()===0?"#64748b":"#e2e8f0","stroke-width":1
+    }));
+    if(tick.showLabel){
+      const anchor=tick.edge||"middle";
+      if(period==="today"){
+        svg.append(svgNode("text",{
+          x:xx,y:202,
+          "text-anchor":anchor,
+          fill:"#64748b","font-size":11
+        },tick.label));
+      }else{
+        svg.append(svgNode("text",{
+          x:xx,y:202,
+          "text-anchor":anchor,
+          fill:"#64748b","font-size":11
+        },tick.dateLabel));
+      }
+    }
+  }
+
   for(let i=0;i<=4;i++){
     const value=min+(max-min)*i/4, yy=y(value);
     svg.append(svgNode("line",{x1:left,y1:yy,x2:right,y2:yy,stroke:"#e2e8f0","stroke-width":1}));
     svg.append(svgNode("text",{x:left-7,y:yy+4,"text-anchor":"end",fill:"#64748b","font-size":11},value.toLocaleString("de-AT",{minimumFractionDigits:3,maximumFractionDigits:3})));
   }
+
   const pts=valid.map((p,i)=>({p,i,date:t[i]})).filter(o=>Number.isFinite(o.date.getTime()));
   if(!pts.length){el(metaId).textContent="Keine gültigen Zeitangaben.";return;}
   const path=pts.map((o,j)=>(j?"L":"M")+x(o.i).toFixed(2)+" "+y(Number(o.p.price_eur)).toFixed(2)).join(" ");
   svg.append(svgNode("path",{d:path,fill:"none",stroke:"#15803d","stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round"}));
-  const first=pts[0],last=pts[pts.length-1];
-  svg.append(svgNode("text",{x:left,y:202,fill:"#64748b","font-size":11},timeText(first.p.captured_at,period==="week")));
-  svg.append(svgNode("text",{x:right,y:202,"text-anchor":"end",fill:"#64748b","font-size":11},timeText(last.p.captured_at,period==="week")));
+
+  if(period!=="today" && period!=="week"){
+    const first=pts[0],last=pts[pts.length-1];
+    svg.append(svgNode("text",{x:left,y:202,fill:"#64748b","font-size":11},timeText(first.p.captured_at,true)));
+    svg.append(svgNode("text",{x:right,y:202,"text-anchor":"end",fill:"#64748b","font-size":11},timeText(last.p.captured_at,true)));
+  }
   el(metaId).textContent=valid.length+" Messpunkte · Tiefststand "+priceText(Math.min(...vals))+" · Höchststand "+priceText(Math.max(...vals));
 }
 function updateNextTime(){
