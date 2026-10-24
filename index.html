@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243a">
+  <title>MyFuelScope – Benzin 95</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #10243a;
+      --blue: #1769aa;
+      --muted: #667788;
+      --border: #dce4eb;
+      --bg: #f3f6f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--navy);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 25px 18px;
+    }
+    .wrap { max-width: 900px; margin: auto; }
+    h1 { margin: 0; font-size: 1.8rem; }
+    header p { margin: 6px 0 0; color: #d6e3ef; }
+    main { padding: 22px 14px 40px; }
+    .summary, .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .label { color: var(--muted); font-size: .9rem; }
+    .value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+    h2 { margin: 0 0 14px; font-size: 1.2rem; }
+    .station {
+      padding: 15px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .station:first-of-type { border-top: 0; }
+    .name { font-weight: 700; }
+    .address { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+    .price { white-space: nowrap; font-size: 1.35rem; font-weight: 750; }
+    .unit { font-size: .8rem; font-weight: 400; color: var(--muted); }
+    .status { color: var(--muted); font-size: .9rem; }
+    .error { color: #a12626; }
+    footer { color: var(--muted); font-size: .85rem; padding: 0 4px; }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      .station { align-items: flex-start; }
+      .price { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>MyFuelScope</h1>
+      <p>Aktuelle Benzin-95-Preise · ausgewählte Tankstellen</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="summary">
+      <div>
+        <div class="label">Kraftstoff</div>
+        <div class="value">Benzin 95 (Super)</div>
+      </div>
+      <div>
+        <div class="label">Tankstellen</div>
+        <div class="value" id="count">–</div>
+      </div>
+      <div>
+        <div class="label">Datenstand</div>
+        <div class="value" id="updated">Wird geladen …</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Tankstellen im Vergleich</h2>
+      <div id="stations" class="status">Preise werden geladen …</div>
+    </section>
+
+    <footer>
+      Quelle: MyFuelScope · Preise in Euro pro Liter.
+      Angezeigt werden die zuletzt erfolgreich veröffentlichten Daten.
+      <div style="margin-top:8px">Automatische Aktualisierung der Anzeige alle 5 Minuten.</div>
+    </footer>
+  </main>
+
+  <script>
+    async function loadPrices() {
+      const container = document.getElementById("stations");
+      try {
+        const response = await fetch("./aktuelle_preise.json?t=" + Date.now(), {
+          cache: "no-store"
+        });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+
+        const data = await response.json();
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error("Keine gültigen Preisdaten vorhanden");
+        }
+
+        data.sort((a, b) => {
+          const pa = a.price_eur == null ? Infinity : Number(a.price_eur);
+          const pb = b.price_eur == null ? Infinity : Number(b.price_eur);
+          return pa - pb;
+        });
+
+        container.replaceChildren();
+        for (const station of data) {
+          const row = document.createElement("div");
+          row.className = "station";
+
+          const info = document.createElement("div");
+          const name = document.createElement("div");
+          name.className = "name";
+          name.textContent = station.name || "Tankstelle";
+
+          const address = document.createElement("div");
+          address.className = "address";
+          address.textContent = [station.address, station.postal_code, station.city]
+            .filter(Boolean).join(", ");
+
+          info.append(name, address);
+
+          const price = document.createElement("div");
+          price.className = "price";
+          if (station.price_eur == null) {
+            price.textContent = "Kein Preis";
+            price.className += " status";
+          } else {
+            const amount = Number(station.price_eur);
+            price.textContent = Number.isFinite(amount)
+              ? amount.toLocaleString("de-AT", {
+                  minimumFractionDigits: 3, maximumFractionDigits: 3
+                }) + " €"
+              : "Ungültig";
+            if (Number.isFinite(amount)) {
+              const unit = document.createElement("span");
+              unit.className = "unit";
+              unit.textContent = " / L";
+              price.appendChild(unit);
+            }
+          }
+
+          row.append(info, price);
+          container.appendChild(row);
+        }
+
+        document.getElementById("count").textContent = data.length;
+        const times = data.map(x => x.captured_at).filter(Boolean).sort();
+        document.getElementById("updated").textContent =
+          times.length ? times[times.length - 1] : "Unbekannt";
+      } catch (error) {
+        container.textContent =
+          "Preisdaten derzeit nicht verfügbar. Bitte später erneut versuchen.";
+        container.className = "status error";
+        document.getElementById("updated").textContent = "Nicht verfügbar";
+        console.error("MyFuelScope:", error);
+      }
+    }
+
+    loadPrices();
+    setInterval(loadPrices, 5 * 60 * 1000);
+  </script>
+</body>
+</html>
