@@ -169,19 +169,49 @@ async function fetchJson(file){
   return r.json();
 }
 function renderBest(data){
-  const valid=data.filter(s=>s.price_eur!==null&&s.price_eur!==undefined&&Number(s.price_eur)>0)
-    .sort((a,b)=>Number(a.price_eur)-Number(b.price_eur));
-  el("bestName").replaceChildren();
+  const valid=data.filter(s=>s.price_eur!==null&&s.price_eur!==undefined&&Number.isFinite(Number(s.price_eur))&&Number(s.price_eur)>0);
+  const nameBox=el("bestName");
+  const priceBox=el("bestPrice");
+  const addressBox=el("bestAddress");
+  const section=nameBox.closest(".best");
+
+  nameBox.replaceChildren();
+  addressBox.replaceChildren();
+
   if(!valid.length){
-    el("bestName").textContent="Derzeit kein gültiger Preis verfügbar";
-    el("bestPrice").textContent="Keine Messung";
-    el("bestAddress").textContent="";
+    nameBox.textContent="Derzeit kein gültiger Preis verfügbar";
+    priceBox.textContent="Keine Messung";
+    if(section) section.insertBefore(priceBox,nameBox);
     return;
   }
-  const best=valid[0];
-  el("bestName").append(makeLogo(best.name),document.createTextNode(best.name));
-  el("bestPrice").textContent=priceText(best.price_eur);
-  el("bestAddress").textContent=addressText(best);
+
+  const lowest=Math.min(...valid.map(s=>Number(s.price_eur)));
+  const winners=valid.filter(s=>Number(s.price_eur)===lowest);
+
+  priceBox.textContent=priceText(lowest);
+  if(section) section.insertBefore(priceBox,nameBox);
+
+  nameBox.style.cssText="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;font-weight:normal;";
+  winners.forEach((station,index)=>{
+    const item=document.createElement("div");
+    item.style.cssText="display:block;text-align:left;margin-top:0;";
+
+    const brand=document.createElement("div");
+    brand.className="brand";
+    brand.style.marginBottom="6px";
+    brand.append(makeLogo(station.name));
+
+    const name=document.createElement("div");
+    name.className="name";
+    name.textContent=station.name||"Tankstelle";
+
+    const address=document.createElement("div");
+    address.className="address";
+    address.textContent=addressText(station);
+
+    item.append(brand,name,address);
+    nameBox.append(item);
+  });
 }
 function renderStations(data){
   const sorted=[...data].sort((a,b)=>{
