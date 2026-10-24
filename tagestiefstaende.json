@@ -20,14 +20,14 @@
     {
         "station_id":  1354682,
         "name":  "Jet B54",
-        "low_price":  1.771,
-        "low_at":  "2026-10-24 18:00:01"
+        "low_price":  1.77,
+        "low_at":  "2026-10-24 19:00:01"
     },
     {
         "station_id":  1354928,
         "name":  "Jet West",
-        "low_price":  1.772,
-        "low_at":  "2026-10-24 17:00:01"
+        "low_price":  1.771,
+        "low_at":  "2026-10-24 19:00:01"
     },
     {
         "station_id":  1471187,
