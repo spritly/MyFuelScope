@@ -49,7 +49,6 @@ footer{color:#64748b;font-size:13px;margin-top:18px}
 <header>
   <img class="applogo" src="./images/applogo.png" alt="MyFuelScope">
   <div>
-    <h1>MyFuelScope</h1>
     <div class="subtitle">Benzin 95 – Preisstatistik</div>
   </div>
 </header>
@@ -147,7 +146,7 @@ function makeLogo(name, className){
   return img;
 }
 function addressText(s){
-  return [s.address,s.postal_code,s.city].filter(Boolean).join(", ");
+  return [s.address,[s.postal_code,s.city].filter(Boolean).join(" ")].filter(Boolean).join("\n");
 }
 function safePrices(data){
   if(!Array.isArray(data)||data.length!==6) throw new Error("Es wurden nicht genau sechs Tankstellen geliefert.");
@@ -181,7 +180,7 @@ function renderBest(data){
   }
   const best=valid[0];
   el("bestName").append(makeLogo(best.name),document.createTextNode(best.name));
-  el("bestPrice").textContent=priceText(best.price_eur)+" / L";
+  el("bestPrice").textContent=priceText(best.price_eur);
   el("bestAddress").textContent=addressText(best);
 }
 function renderStations(data){
