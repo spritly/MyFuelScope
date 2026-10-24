@@ -1,187 +1,348 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10243a">
-  <title>MyFuelScope – Benzin 95</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --navy: #10243a;
-      --blue: #1769aa;
-      --muted: #667788;
-      --border: #dce4eb;
-      --bg: #f3f6f9;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--navy);
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    }
-    header {
-      background: var(--navy);
-      color: white;
-      padding: 25px 18px;
-    }
-    .wrap { max-width: 900px; margin: auto; }
-    h1 { margin: 0; font-size: 1.8rem; }
-    header p { margin: 6px 0 0; color: #d6e3ef; }
-    main { padding: 22px 14px 40px; }
-    .summary, .panel {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 16px;
-    }
-    .summary {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .label { color: var(--muted); font-size: .9rem; }
-    .value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
-    h2 { margin: 0 0 14px; font-size: 1.2rem; }
-    .station {
-      padding: 15px 0;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .station:first-of-type { border-top: 0; }
-    .name { font-weight: 700; }
-    .address { color: var(--muted); font-size: .9rem; margin-top: 4px; }
-    .price { white-space: nowrap; font-size: 1.35rem; font-weight: 750; }
-    .unit { font-size: .8rem; font-weight: 400; color: var(--muted); }
-    .status { color: var(--muted); font-size: .9rem; }
-    .error { color: #a12626; }
-    footer { color: var(--muted); font-size: .85rem; padding: 0 4px; }
-    @media (max-width: 480px) {
-      h1 { font-size: 1.5rem; }
-      .station { align-items: flex-start; }
-      .price { font-size: 1.2rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f1f5f9">
+<title>MyFuelScope – Benzin 95</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f5f9;color:#172033;margin:0;padding:18px}
+main{max-width:1100px;margin:auto}
+header{display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.applogo{display:block;width:auto;height:auto;max-width:280px;max-height:64px;object-fit:contain}
+.subtitle{color:#64748b}
+h1{margin:0;font-size:27px}
+h2{margin-top:24px}
+.muted{color:#64748b}
+.best,.panel,.station{background:#fff;border-radius:12px;padding:17px;margin:12px 0;box-shadow:0 2px 8px #0001}
+.best{border-left:5px solid #16a34a}
+.price{font-size:25px;font-weight:bold;color:#15803d;margin-top:8px}
+.best-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:bold}
+.best-name img{display:block;max-width:120px;max-height:38px;width:auto;height:auto;object-fit:contain}
+#stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.station{margin:0;min-width:0}
+.brand{display:flex;align-items:center;width:100%;height:42px;margin-bottom:10px;color:#334155;font-size:12px;font-weight:bold;letter-spacing:.3px}
+.brand img{display:block;max-width:132px;max-height:40px;width:auto;height:auto;object-fit:contain;object-position:left center}
+.name{font-size:18px;font-weight:bold}
+.address,.captured,.low{color:#64748b;margin-top:8px;font-size:14px}
+.address{white-space:pre-line}
+.low strong{color:#15803d}
+.summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.summary-item{background:#fff;border-radius:12px;padding:14px 17px;box-shadow:0 2px 8px #0001;min-width:0}
+.summary-value{font-size:1.15rem;font-weight:bold;margin-top:5px;overflow-wrap:anywhere}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}
+select{font-size:16px;padding:9px;border:1px solid #cbd5e1;border-radius:8px;background:white;max-width:100%}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.chartbox{min-width:0}
+.chartbox h3{margin:0 0 8px;font-size:16px}
+.chart{width:100%;min-height:190px;display:block;overflow:visible}
+.chartmeta{font-size:13px;color:#64748b;margin-top:5px}
+.status{color:#64748b;font-size:14px}
+.error{color:#b91c1c}
+footer{color:#64748b;font-size:13px;margin-top:18px}
+@media(max-width:480px){body{padding:10px}h1{font-size:23px}.best,.panel,.station{padding:13px}.summary{gap:8px}.summary-item{padding:12px}.summary-value{font-size:1rem}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <h1>MyFuelScope</h1>
-      <p>Aktuelle Benzin-95-Preise · ausgewählte Tankstellen</p>
+<main>
+<header>
+  <img class="applogo" src="./images/applogo.png" alt="MyFuelScope">
+  <div>
+    <h1>MyFuelScope</h1>
+    <div class="subtitle">Benzin 95 – Preisstatistik</div>
+  </div>
+</header>
+
+<div class="summary">
+  <div class="summary-item">
+    <div class="muted">Aktualisiert</div>
+    <div class="summary-value" id="updated">Wird geladen …</div>
+  </div>
+  <div class="summary-item">
+    <div class="muted">Nächste Aktualisierung</div>
+    <div class="summary-value" id="nextUpdate">–</div>
+  </div>
+</div>
+
+<p id="status" class="muted">Lade Preisdaten …</p>
+
+<section class="best">
+  <h2 style="margin-top:0">Aktuell günstigste Tankstelle</h2>
+  <div id="bestName" class="best-name">Preise werden geladen …</div>
+  <div id="bestPrice" class="price">–</div>
+  <div id="bestAddress" class="address"></div>
+</section>
+
+<h2>Tankstellen <span id="count" class="muted"></span></h2>
+<div id="stations" class="status">Preisdaten werden geladen …</div>
+
+<section class="panel">
+  <h2 style="margin-top:0">Preisverlauf</h2>
+  <div class="controls">
+    <label for="stationSelect">Tankstelle:</label>
+    <select id="stationSelect"><option>Wird geladen …</option></select>
+  </div>
+  <div class="charts">
+    <div class="chartbox">
+      <h3>Laufender Tag</h3>
+      <svg id="chartToday" class="chart" viewBox="0 0 500 220" role="img" aria-label="Preisverlauf heute"></svg>
+      <div id="metaToday" class="chartmeta"></div>
     </div>
-  </header>
+    <div class="chartbox">
+      <h3>Letzte 7 Tage</h3>
+      <svg id="chartWeek" class="chart" viewBox="0 0 500 220" role="img" aria-label="Preisverlauf der letzten sieben Tage"></svg>
+      <div id="metaWeek" class="chartmeta"></div>
+    </div>
+  </div>
+</section>
 
-  <main class="wrap">
-    <section class="summary">
-      <div>
-        <div class="label">Kraftstoff</div>
-        <div class="value">Benzin 95 (Super)</div>
-      </div>
-      <div>
-        <div class="label">Tankstellen</div>
-        <div class="value" id="count">–</div>
-      </div>
-      <div>
-        <div class="label">Datenstand</div>
-        <div class="value" id="updated">Wird geladen …</div>
-      </div>
-    </section>
+<footer>
+  Quelle: MyFuelScope · Preise in Euro pro Liter.<br>
+  Die öffentliche Seite zeigt die zuletzt erfolgreich veröffentlichten Daten.
+  <div style="margin-top:8px">Die Daten werden stündlich veröffentlicht. Die Anzeige prüft regelmäßig auf neue Daten.</div>
+</footer>
+</main>
 
-    <section class="panel">
-      <h2>Tankstellen im Vergleich</h2>
-      <div id="stations" class="status">Preise werden geladen …</div>
-    </section>
+<script>
+"use strict";
 
-    <footer>
-      Quelle: MyFuelScope · Preise in Euro pro Liter.
-      Angezeigt werden die zuletzt erfolgreich veröffentlichten Daten.
-      <div style="margin-top:8px">Automatische Aktualisierung der Anzeige alle 5 Minuten.</div>
-    </footer>
-  </main>
+const APPROVED_IDS = new Set([1471187,1126532,1354801,1354682,1354928,35847]);
+const BRAND_FILES = {
+  bp: "./images/bp.png",
+  turmoel: "./images/turmoel.png",
+  jet: "./images/jet.png",
+  avanti: "./images/avanti.png"
+};
+let pricesData = [];
+let lowsById = new Map();
+let historyById = new Map();
 
-  <script>
-    async function loadPrices() {
-      const container = document.getElementById("stations");
-      try {
-        const response = await fetch("./aktuelle_preise.json?t=" + Date.now(), {
-          cache: "no-store"
-        });
-        if (!response.ok) throw new Error("HTTP " + response.status);
-
-        const data = await response.json();
-        if (!Array.isArray(data) || data.length === 0) {
-          throw new Error("Keine gültigen Preisdaten vorhanden");
-        }
-
-        data.sort((a, b) => {
-          const pa = a.price_eur == null ? Infinity : Number(a.price_eur);
-          const pb = b.price_eur == null ? Infinity : Number(b.price_eur);
-          return pa - pb;
-        });
-
-        container.replaceChildren();
-        for (const station of data) {
-          const row = document.createElement("div");
-          row.className = "station";
-
-          const info = document.createElement("div");
-          const name = document.createElement("div");
-          name.className = "name";
-          name.textContent = station.name || "Tankstelle";
-
-          const address = document.createElement("div");
-          address.className = "address";
-          address.textContent = [station.address, station.postal_code, station.city]
-            .filter(Boolean).join(", ");
-
-          info.append(name, address);
-
-          const price = document.createElement("div");
-          price.className = "price";
-          if (station.price_eur == null) {
-            price.textContent = "Kein Preis";
-            price.className += " status";
-          } else {
-            const amount = Number(station.price_eur);
-            price.textContent = Number.isFinite(amount)
-              ? amount.toLocaleString("de-AT", {
-                  minimumFractionDigits: 3, maximumFractionDigits: 3
-                }) + " €"
-              : "Ungültig";
-            if (Number.isFinite(amount)) {
-              const unit = document.createElement("span");
-              unit.className = "unit";
-              unit.textContent = " / L";
-              price.appendChild(unit);
-            }
-          }
-
-          row.append(info, price);
-          container.appendChild(row);
-        }
-
-        document.getElementById("count").textContent = data.length;
-        const times = data.map(x => x.captured_at).filter(Boolean).sort();
-        document.getElementById("updated").textContent =
-          times.length ? times[times.length - 1] : "Unbekannt";
-      } catch (error) {
-        container.textContent =
-          "Preisdaten derzeit nicht verfügbar. Bitte später erneut versuchen.";
-        container.className = "status error";
-        document.getElementById("updated").textContent = "Nicht verfügbar";
-        console.error("MyFuelScope:", error);
-      }
+function el(id){ return document.getElementById(id); }
+function stationId(x){ return Number(x.station_id); }
+function priceText(value){
+  if(value === null || value === undefined || !Number.isFinite(Number(value)) || Number(value)<=0) return "Keine Messung";
+  return Number(value).toLocaleString("de-AT",{minimumFractionDigits:3,maximumFractionDigits:3})+" €";
+}
+function timeText(value, withDate=true){
+  if(!value) return "Unbekannt";
+  const s=String(value);
+  const m=s.match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);
+  if(!m) return s;
+  return (withDate ? m[3]+"."+m[2]+"."+m[1]+" " : "")+m[4]+":"+m[5]+" Uhr";
+}
+function brandKey(name){
+  const n=String(name||"").toLowerCase();
+  if(n.startsWith("bp")) return "bp";
+  if(n.startsWith("jet")) return "jet";
+  if(n.startsWith("avanti")) return "avanti";
+  return "turmoel";
+}
+function makeLogo(name, className){
+  const img=document.createElement("img");
+  img.src=BRAND_FILES[brandKey(name)];
+  img.alt=String(name||"Tankstelle");
+  img.className=className||"";
+  img.onerror=()=>{const fallback=document.createElement("span");fallback.textContent=String(name||"Tankstelle");img.replaceWith(fallback);};
+  return img;
+}
+function addressText(s){
+  return [s.address,s.postal_code,s.city].filter(Boolean).join(", ");
+}
+function safePrices(data){
+  if(!Array.isArray(data)||data.length!==6) throw new Error("Es wurden nicht genau sechs Tankstellen geliefert.");
+  const ids=new Set();
+  for(const s of data){
+    const id=stationId(s);
+    if(!APPROVED_IDS.has(id)||ids.has(id)) throw new Error("Unbekannte oder doppelte Tankstelle in den Preisdaten.");
+    ids.add(id);
+    if(s.price_eur!==null && s.price_eur!==undefined &&
+       (!Number.isFinite(Number(s.price_eur))||Number(s.price_eur)<=0)) {
+      throw new Error("Ungültiger Preis für "+(s.name||id)+".");
     }
-
-    loadPrices();
-    setInterval(loadPrices, 5 * 60 * 1000);
-  </script>
+  }
+  if(ids.size!==APPROVED_IDS.size) throw new Error("Die freigegebene Tankstellenliste ist unvollständig.");
+  return data;
+}
+async function fetchJson(file){
+  const r=await fetch("./"+file+"?t="+Date.now(),{cache:"no-store"});
+  if(!r.ok) throw new Error(file+": HTTP "+r.status);
+  return r.json();
+}
+function renderBest(data){
+  const valid=data.filter(s=>s.price_eur!==null&&s.price_eur!==undefined&&Number(s.price_eur)>0)
+    .sort((a,b)=>Number(a.price_eur)-Number(b.price_eur));
+  el("bestName").replaceChildren();
+  if(!valid.length){
+    el("bestName").textContent="Derzeit kein gültiger Preis verfügbar";
+    el("bestPrice").textContent="Keine Messung";
+    el("bestAddress").textContent="";
+    return;
+  }
+  const best=valid[0];
+  el("bestName").append(makeLogo(best.name),document.createTextNode(best.name));
+  el("bestPrice").textContent=priceText(best.price_eur)+" / L";
+  el("bestAddress").textContent=addressText(best);
+}
+function renderStations(data){
+  const sorted=[...data].sort((a,b)=>{
+    const pa=a.price_eur==null?Infinity:Number(a.price_eur);
+    const pb=b.price_eur==null?Infinity:Number(b.price_eur);
+    return pa-pb;
+  });
+  const container=el("stations");
+  container.replaceChildren();
+  for(const s of sorted){
+    const card=document.createElement("article");
+    card.className="station";
+    const brand=document.createElement("div");
+    brand.className="brand";
+    brand.append(makeLogo(s.name));
+    const name=document.createElement("div");
+    name.className="name";
+    name.textContent=s.name||"Tankstelle";
+    const address=document.createElement("div");
+    address.className="address";
+    address.textContent=addressText(s);
+    const price=document.createElement("div");
+    price.className="price";
+    price.textContent=priceText(s.price_eur);
+    if(s.price_eur==null) price.classList.add("muted");
+    const captured=document.createElement("div");
+    captured.className="captured";
+    captured.textContent="Letzte Messung: "+timeText(s.captured_at,true);
+    const low=document.createElement("div");
+    low.className="low";
+    const lowRecord=lowsById.get(stationId(s));
+    if(lowRecord && lowRecord.low_price!=null){
+      low.innerHTML="Tagestiefststand: <strong></strong>";
+      low.querySelector("strong").textContent=priceText(lowRecord.low_price);
+      if(lowRecord.low_at) low.append(document.createTextNode(" · "+timeText(lowRecord.low_at,false)));
+    } else {
+      low.textContent="Tagestiefststand: Keine Messung";
+    }
+    card.append(brand,name,address,price,captured,low);
+    container.append(card);
+  }
+  el("count").textContent="("+data.length+")";
+}
+function svgNode(tag,attrs={},text){
+  const n=document.createElementNS("http://www.w3.org/2000/svg",tag);
+  for(const [k,v] of Object.entries(attrs)) n.setAttribute(k,String(v));
+  if(text!==undefined) n.textContent=text;
+  return n;
+}
+function drawChart(svgId,metaId,points,period){
+  const svg=el(svgId);
+  svg.replaceChildren();
+  const valid=(Array.isArray(points)?points:[]).filter(p=>
+    p && p.price_eur!=null && Number.isFinite(Number(p.price_eur)) && Number(p.price_eur)>0 && p.captured_at
+  );
+  if(!valid.length){
+    svg.append(svgNode("text",{x:250,y:105,"text-anchor":"middle",fill:"#64748b","font-size":14},"Keine Messwerte für diesen Zeitraum"));
+    el(metaId).textContent="Keine Messung vorhanden.";
+    return;
+  }
+  const vals=valid.map(p=>Number(p.price_eur));
+  let min=Math.min(...vals),max=Math.max(...vals);
+  if(min===max){min-=0.01;max+=0.01;}
+  const left=52,right=485,top=18,bottom=178;
+  const t=valid.map(p=>new Date(String(p.captured_at).replace(" ","T")));
+  const ts=t.map(d=>d.getTime()).filter(Number.isFinite);
+  if(!ts.length){
+    svg.append(svgNode("text",{x:250,y:105,"text-anchor":"middle",fill:"#64748b","font-size":14},"Zeitangaben ungültig"));
+    el(metaId).textContent="Verlauf derzeit nicht darstellbar.";
+    return;
+  }
+  const tmin=Math.min(...ts),tmax=Math.max(...ts);
+  const x=i=>tmax===tmin?(left+right)/2:left+(t[i].getTime()-tmin)/(tmax-tmin)*(right-left);
+  const y=v=>bottom-(v-min)/(max-min)*(bottom-top);
+  for(let i=0;i<=4;i++){
+    const value=min+(max-min)*i/4, yy=y(value);
+    svg.append(svgNode("line",{x1:left,y1:yy,x2:right,y2:yy,stroke:"#e2e8f0","stroke-width":1}));
+    svg.append(svgNode("text",{x:left-7,y:yy+4,"text-anchor":"end",fill:"#64748b","font-size":11},value.toLocaleString("de-AT",{minimumFractionDigits:3,maximumFractionDigits:3})));
+  }
+  const pts=valid.map((p,i)=>({p,i,date:t[i]})).filter(o=>Number.isFinite(o.date.getTime()));
+  if(!pts.length){el(metaId).textContent="Keine gültigen Zeitangaben.";return;}
+  const path=pts.map((o,j)=>(j?"L":"M")+x(o.i).toFixed(2)+" "+y(Number(o.p.price_eur)).toFixed(2)).join(" ");
+  svg.append(svgNode("path",{d:path,fill:"none",stroke:"#15803d","stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round"}));
+  const first=pts[0],last=pts[pts.length-1];
+  svg.append(svgNode("text",{x:left,y:202,fill:"#64748b","font-size":11},timeText(first.p.captured_at,period==="week")));
+  svg.append(svgNode("text",{x:right,y:202,"text-anchor":"end",fill:"#64748b","font-size":11},timeText(last.p.captured_at,period==="week")));
+  el(metaId).textContent=valid.length+" Messpunkte · Tiefststand "+priceText(Math.min(...vals))+" · Höchststand "+priceText(Math.max(...vals));
+}
+function updateNextTime(){
+  const now=new Date();
+  const next=new Date(now);
+  next.setMinutes(1,0,0);
+  next.setHours(now.getHours()+1);
+  el("nextUpdate").textContent=next.toLocaleTimeString("de-AT",{hour:"2-digit",minute:"2-digit"})+" Uhr";
+}
+function renderCharts(){
+  const id=Number(el("stationSelect").value);
+  const record=historyById.get(id);
+  if(!record){
+    drawChart("chartToday","metaToday",[],"today");
+    drawChart("chartWeek","metaWeek",[],"week");
+    return;
+  }
+  drawChart("chartToday","metaToday",record.today&&record.today.points,"today");
+  drawChart("chartWeek","metaWeek",record.week&&record.week.points,"week");
+}
+async function loadAll(){
+  try{
+    const [prices,lows,history]=await Promise.all([
+      fetchJson("aktuelle_preise.json"),
+      fetchJson("tagestiefstaende.json"),
+      fetchJson("preisverlauf.json")
+    ]);
+    pricesData=safePrices(prices);
+    if(!Array.isArray(lows)) throw new Error("Format der Tagestiefstände ist ungültig.");
+    lowsById=new Map();
+    for(const item of lows){
+      if(!APPROVED_IDS.has(Number(item.station_id))) throw new Error("Nicht freigegebene Tankstelle in den Tagestiefständen.");
+      lowsById.set(Number(item.station_id),item);
+    }
+    if(!history||!Array.isArray(history.stations)||history.stations.length!==6) throw new Error("Format des Preisverlaufs ist ungültig.");
+    historyById=new Map();
+    for(const item of history.stations){
+      if(!APPROVED_IDS.has(Number(item.station_id))) throw new Error("Nicht freigegebene Tankstelle im Preisverlauf.");
+      for(const period of ["today","week"]){
+        if(!item[period]||!Array.isArray(item[period].points)) throw new Error("Fehlende Verlaufspunkte für Tankstelle "+item.station_id+".");
+        for(const point of item[period].points){
+          if(point.price_eur==null||!Number.isFinite(Number(point.price_eur))||Number(point.price_eur)<=0) throw new Error("Ungültiger historischer Preis.");
+        }
+      }
+      historyById.set(Number(item.station_id),item);
+    }
+    renderBest(pricesData);
+    renderStations(pricesData);
+    const select=el("stationSelect");
+    const old=select.value;
+    select.replaceChildren();
+    for(const s of pricesData){
+      const option=document.createElement("option");
+      option.value=String(stationId(s));
+      option.textContent=s.name;
+      select.append(option);
+    }
+    if(old&&pricesData.some(s=>String(stationId(s))===old)) select.value=old;
+    renderCharts();
+    const times=pricesData.map(x=>x.captured_at).filter(Boolean).sort();
+    el("updated").textContent=times.length?timeText(times[times.length-1],false):"Unbekannt";
+    el("status").textContent="Daten erfolgreich geladen · "+new Date().toLocaleTimeString("de-AT",{hour:"2-digit",minute:"2-digit"})+" Uhr";
+    el("status").className="muted";
+  }catch(error){
+    el("status").textContent="Öffentliche Daten derzeit nicht vollständig verfügbar: "+error.message;
+    el("status").className="error";
+    console.error("MyFuelScope:",error);
+  }
+  updateNextTime();
+}
+el("stationSelect").addEventListener("change",renderCharts);
+loadAll();
+setInterval(loadAll,60*1000);
+setInterval(updateNextTime,30*1000);
+</script>
 </body>
 </html>
