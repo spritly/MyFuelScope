@@ -22,19 +22,34 @@ function Run-Git {
 }
 
 try {
-    # Vorab prüfen, dass im Repository keine fremden Änderungen offen sind.
+    # Vor jedem Export sicherstellen, dass kein lokaler Arbeitsstand überschrieben wird.
     Write-Host "=== Repository-Status prüfen ==="
-    # Nach dem Kopieren erneut prüfen, dass keine weiteren Dateien betroffen sind.
     $status = @(& git -C $repo status --porcelain)
     if ($LASTEXITCODE -ne 0) {
         throw "Git-Status konnte nicht gelesen werden."
     }
+    if ($status.Count -gt 0) {
+        throw "Das Repository enthält lokale Änderungen. Veröffentlichung abgebrochen, damit nichts überschrieben wird: $($status -join [Environment]::NewLine)"
+    }
 
-    $otherChanges = @($status | Where-Object {
-        $_.Length -ge 4 -and $_.Substring(3) -notin $files
-    })
-    if ($otherChanges.Count -gt 0) {
-        throw "Andere Änderungen im Repository gefunden. Veröffentlichung abgebrochen:`n$($otherChanges -join "`n")"
+    # Neuere GitHub-Commits übernehmen, bevor JSON-Dateien geändert oder committet werden.
+    Write-Host "=== Aktuellen GitHub-Stand abrufen ==="
+    Run-Git @("fetch", "origin")
+    try {
+        Run-Git @("pull", "--rebase", "origin", "main")
+    }
+    catch {
+        # Falls ein Rebase-Konflikt auftritt, keinen unvollständigen Rebase zurücklassen.
+        & git -C $repo rebase --abort 2>$null | Out-Null
+        throw "GitHub-Änderungen konnten nicht konfliktfrei integriert werden. Rebase wurde abgebrochen. Details: $($_.Exception.Message)"
+    }
+
+    $status = @(& git -C $repo status --porcelain)
+    if ($LASTEXITCODE -ne 0) {
+        throw "Git-Status konnte nach dem Aktualisieren nicht gelesen werden."
+    }
+    if ($status.Count -gt 0) {
+        throw "Das Repository ist nach dem Aktualisieren nicht sauber. Veröffentlichung abgebrochen: $($status -join [Environment]::NewLine)"
     }
 
     # Jede Quelldatei wird vor dem Kopieren anhand ihrer erwarteten Struktur validiert.
@@ -106,7 +121,7 @@ try {
         $_.Length -ge 4 -and $_.Substring(3) -notin $files
     })
     if ($otherChanges.Count -gt 0) {
-        throw "Andere Änderungen im Repository gefunden. Veröffentlichung abgebrochen:`n$($otherChanges -join "`n")"
+        throw "Andere Änderungen im Repository gefunden. Veröffentlichung abgebrochen: $($otherChanges -join [Environment]::NewLine)"
     }
 
     # Nur die explizit freigegebenen JSON-Dateien für den Commit vormerken.
