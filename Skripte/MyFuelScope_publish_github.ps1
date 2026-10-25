@@ -1,5 +1,8 @@
+# Validiert die drei vorbereiteten JSON-Dateien und veröffentlicht ausschließlich diese Dateien via Git.
+# Unerwartete Repository-Änderungen führen zum Abbruch, damit nichts Fremdes committet wird.
 $ErrorActionPreference = "Stop"
 
+# Quellordner der Exporte und lokaler Klon des GitHub-Pages-Repositories.
 $sourceDir = "E:\MyFuelScope\UploadMegaNz"
 $repo = "E:\MyFuelScope\Git"
 $files = @(
@@ -9,6 +12,7 @@ $files = @(
 )
 $tempFiles = @()
 
+# Führt Git im Projektverzeichnis aus und bricht bei jedem Fehler ab.
 function Run-Git {
     param([string[]]$GitArgs)
     & git -C $repo @GitArgs
@@ -18,7 +22,9 @@ function Run-Git {
 }
 
 try {
+    # Vorab prüfen, dass im Repository keine fremden Änderungen offen sind.
     Write-Host "=== Repository-Status prüfen ==="
+    # Nach dem Kopieren erneut prüfen, dass keine weiteren Dateien betroffen sind.
     $status = @(& git -C $repo status --porcelain)
     if ($LASTEXITCODE -ne 0) {
         throw "Git-Status konnte nicht gelesen werden."
@@ -31,6 +37,7 @@ try {
         throw "Andere Änderungen im Repository gefunden. Veröffentlichung abgebrochen:`n$($otherChanges -join "`n")"
     }
 
+    # Jede Quelldatei wird vor dem Kopieren anhand ihrer erwarteten Struktur validiert.
     Write-Host "=== Drei JSON-Dateien validieren und übernehmen ==="
     foreach ($name in $files) {
         $source = Join-Path $sourceDir $name
@@ -102,6 +109,7 @@ try {
         throw "Andere Änderungen im Repository gefunden. Veröffentlichung abgebrochen:`n$($otherChanges -join "`n")"
     }
 
+    # Nur die explizit freigegebenen JSON-Dateien für den Commit vormerken.
     Run-Git (@("add", "--") + $files)
 
     $staged = @(& git -C $repo diff --cached --name-only)
@@ -120,16 +128,19 @@ try {
         throw "Sicherheitsprüfung: Unerwartete Dateien vorgemerkt: $($unexpected -join ', ')"
     }
 
+    # Commit und Push erfolgen nur, wenn die gestagten Änderungen ausschließlich erlaubte Dateien betreffen.
     Run-Git @("commit", "-m", "Update fuel price data")
     Run-Git @("push", "origin", "main")
 
     Write-Host "VERÖFFENTLICHUNG ERFOLGREICH: Alle drei JSON-Dateien übertragen." -ForegroundColor Green
 }
 catch {
+    # Veröffentlichungsfehler ausgeben und dem Task Scheduler als Fehler signalisieren.
     Write-Host "VERÖFFENTLICHUNG FEHLGESCHLAGEN: $($_.Exception.Message)" -ForegroundColor Red
     exit 1
 }
 finally {
+    # Temporäre Kopien bei Erfolg oder Fehler entfernen.
     foreach ($temp in $tempFiles) {
         if (Test-Path -LiteralPath $temp) {
             Remove-Item -LiteralPath $temp -Force -ErrorAction SilentlyContinue
