@@ -1,4 +1,4 @@
-# Validiert die drei vorbereiteten JSON-Dateien und veröffentlicht ausschließlich diese Dateien via Git.
+﻿# Validiert die drei vorbereiteten JSON-Dateien und veröffentlicht ausschließlich diese Dateien via Git.
 # Unerwartete Repository-Änderungen führen zum Abbruch, damit nichts Fremdes committet wird.
 $ErrorActionPreference = "Stop"
 
