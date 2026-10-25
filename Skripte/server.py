@@ -7,17 +7,22 @@ import datetime
 import urlparse
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
+# Datenbankdatei sowie Bind-Adresse und Port des lokalen Webservers.
+# HOST beschränkt den Dienst auf die konfigurierte NAS-IP-Adresse.
 DB_PATH = '/volume1/MyFuelScope/preise.db'
 HOST = '10.0.0.2'
 PORT = 8080
 
 
+# Gemeinsame Verbindung: sqlite3.Row erlaubt Zugriff auf Spalten über Namen.
 def db_connect():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
 
+# Liefert je Tankstelle den letzten gespeicherten SUP-Preis samt Stammdaten.
+# LEFT JOIN sorgt dafür, dass Tankstellen ohne Messung ebenfalls ausgegeben werden.
 def get_prices():
     conn = db_connect()
     try:
@@ -43,6 +48,8 @@ def get_prices():
         conn.close()
 
 
+# Liefert alle Messpunkte einer Tankstelle für heute oder die letzten sieben Tage.
+# Die Zeitgrenzen werden anhand der lokalen Uhrzeit des NAS gebildet.
 def get_history(station_id, period):
     now = datetime.datetime.now()
     if period == 'today':
@@ -74,6 +81,8 @@ def get_history(station_id, period):
         conn.close()
 
 
+# Ermittelt pro Tankstelle den niedrigsten gespeicherten Preis des heutigen Tages.
+# Für den Tiefstpreis wird zusätzlich der früheste passende Messzeitpunkt gesucht.
 def get_lows():
     today = datetime.datetime.now().strftime('%Y-%m-%d') + ' 00:00:00'
     now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -109,6 +118,8 @@ def get_lows():
         conn.close()
 
 
+# Die HTML-Konstante enthält die Browseroberfläche inklusive CSS und JavaScript.
+# Dynamische Preisdaten werden separat über die JSON-Endpunkte geladen.
 HTML = u"""<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -360,7 +371,9 @@ select { font-size:16px; padding:9px; border:1px solid #cbd5e1; border-radius:8p
 """
 
 
+# HTTP-Handler für die HTML-Seite, Logos und JSON-Endpunkte.
 class Handler(BaseHTTPRequestHandler):
+    # Einheitliche Antwortfunktion mit UTF-8-Unterstützung und deaktiviertem Caching.
     def send_body(self, status, content_type, body):
         if isinstance(body, unicode):
             body = body.encode('utf-8')
@@ -371,9 +384,11 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    # Verarbeitet GET-Anfragen; Query-Parameter werden getrennt vom Pfad ausgewertet.
     def do_GET(self):
         path, params = urlparse.urlparse(self.path)[2], urlparse.parse_qs(urlparse.urlparse(self.path)[4])
         try:
+            # Nur explizit erlaubte Bilddateien aus dem Images-Verzeichnis ausliefern.
             if path.startswith('/images/'):
                 filename = path[len('/images/'):]
                 if filename not in ('bp.png', 'turmoel.png', 'jet.png', 'avanti.png', 'applogo.png', 'appfavicon.png'):
@@ -388,14 +403,17 @@ class Handler(BaseHTTPRequestHandler):
                     return
                 self.send_body(200, 'image/png', image_body)
                 return
+            # Aktuelle Preise und Tankstellen-Stammdaten.
             if path == '/api/prices':
                 self.send_body(200, 'application/json; charset=utf-8',
                                json.dumps(get_prices(), ensure_ascii=True))
                 return
+            # Tages-Tiefststände je Tankstelle.
             if path == '/api/lows':
                 self.send_body(200, 'application/json; charset=utf-8',
                                json.dumps(get_lows(), ensure_ascii=True))
                 return
+            # Historische Messpunkte einer Tankstelle; Eingaben werden validiert.
             if path == '/api/history':
                 try:
                     station_id = int(params.get('station_id', [''])[0])
@@ -421,18 +439,22 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_body(200, 'application/json; charset=utf-8',
                                json.dumps(get_history(station_id, period), ensure_ascii=True))
                 return
+            # Unbekannte Pfade werden nicht auf die Startseite umgeleitet.
             if path != '/':
                 self.send_error(404)
                 return
             self.send_body(200, 'text/html; charset=utf-8', HTML)
+        # Unerwartete Fehler werden als HTTP 500 im JSON-Format zurückgegeben.
         except Exception as exc:
             self.send_body(500, 'application/json; charset=utf-8',
                            json.dumps({'error':str(exc)}, ensure_ascii=True))
 
+    # Schreibt HTTP-Zugriffe ins Prozess-Log.
     def log_message(self, fmt, *args):
         print '[%s] %s' % (self.log_date_time_string(), fmt % args)
 
 
+# Startet den synchronen HTTP-Server und hält den Prozess aktiv.
 if __name__ == '__main__':
     print 'MyFuelScope startet auf http://%s:%d/' % (HOST, PORT)
     HTTPServer((HOST, PORT), Handler).serve_forever()
