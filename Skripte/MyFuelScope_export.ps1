@@ -1,10 +1,14 @@
+# Exportiert aktuelle Preise, Tagestiefstände und Verlauf aus der lokalen MyFuelScope-API.
+# Bei einem Fehler wird abgebrochen, damit keine unvollständigen Daten veröffentlicht werden.
 $ErrorActionPreference = "Stop"
 
+# Lokale API, Zielordner und erlaubte Stations-IDs für diesen Exportlauf.
 $base = "http://10.0.0.2:8080"
 $targetDir = "E:\MyFuelScope\UploadMegaNz"
 $allowedIds = @(1126532, 1354801, 1471187, 1354682, 1354928, 35847)
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
+# Ruft einen API-Endpunkt ab und weist leere Antworten zurück.
 function Get-ApiJson {
     param([string]$Path)
 
@@ -16,6 +20,7 @@ function Get-ApiJson {
     return $response
 }
 
+# Prüft Preise invariant zur Windows-Ländereinstellung; fehlende/ungültige Werte werden nicht ersetzt.
 function Test-PositivePrice {
     param($Value, [string]$Context)
 
@@ -34,6 +39,7 @@ function Test-PositivePrice {
     }
 }
 
+# Schreibt JSON mit UTF-8 ohne BOM zunächst in eine temporäre Datei.
 function Write-JsonTemp {
     param([string]$Path, $Data)
 
@@ -46,11 +52,13 @@ function Write-JsonTemp {
 }
 
 try {
+    # Vor dem Abruf sicherstellen, dass das konfigurierte Exportziel existiert.
     if (!(Test-Path -LiteralPath $targetDir)) {
         throw "Exportordner nicht gefunden: $targetDir"
     }
 
     Write-Host "=== 1/3 Aktuelle Preise abrufen ===" -ForegroundColor Cyan
+    # 1) Aktuelle Stationsdaten abrufen und Anzahl, IDs, Pflichtfelder sowie Preise prüfen.
     $currentRaw = @(Get-ApiJson "/api/prices")
 
     if ($currentRaw.Count -ne 6) {
@@ -106,6 +114,7 @@ try {
     }
 
     Write-Host "=== 2/3 Tagestiefstände abrufen ===" -ForegroundColor Cyan
+    # 2) Tagestiefstände prüfen. Ein nicht vorhandener Tiefstpreis bleibt null.
     $lowsRaw = @(Get-ApiJson "/api/lows")
 
     if ($lowsRaw.Count -ne 6) {
@@ -151,6 +160,7 @@ try {
     }
 
     Write-Host "=== 3/3 Tages- und Wochenverlauf abrufen ===" -ForegroundColor Cyan
+    # 3) Für jede freigegebene Station Tages- und Wochenverlauf abrufen und validieren.
     $historyStations = @()
 
     foreach ($id in $allowedIds) {
@@ -206,6 +216,7 @@ try {
         stations     = $historyStations
     }
 
+    # Erst wenn alle Datensätze geprüft sind, die drei JSON-Ausgaben vorbereiten.
     # Alle Daten wurden validiert. Zuerst drei temporäre Dateien schreiben.
     $outputs = @(
         @{
@@ -232,6 +243,7 @@ try {
         }
     }
 
+    # Der Austausch erfolgt erst nach erfolgreicher Erzeugung aller drei temporären Dateien.
     # Erst nach erfolgreicher Erzeugung aller drei Dateien austauschen.
     foreach ($file in $tempFiles) {
         Move-Item -LiteralPath $file.Temp -Destination $file.Target -Force
@@ -249,10 +261,12 @@ try {
         Format-Table -AutoSize
 }
 catch {
+    # Fehler sichtbar melden und einen Fehler-Exitcode liefern.
     Write-Host "`nEXPORT FEHLGESCHLAGEN: $($_.Exception.Message)" -ForegroundColor Red
     exit 1
 }
 finally {
+    # Zurückgebliebene temporäre JSON-Dateien unabhängig vom Ausgang aufräumen.
     Get-ChildItem -LiteralPath $targetDir -Filter ".*.json.tmp" -ErrorAction SilentlyContinue |
         Remove-Item -Force -ErrorAction SilentlyContinue
 }
