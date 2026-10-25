@@ -1,0 +1,524 @@
+MyFuelScope – Technische Gesamtdokumentation
+============================================
+
+Erstellt am: 25.10.2026 06:31:44 +01:00
+Projekt: MyFuelScope
+Repository: https://github.com/spritly/MyFuelScope
+Branch: main
+Öffentliche Website: https://spritly.github.io/MyFuelScope/
+Lokale NAS-Webanwendung: http://10.0.0.2:8080/
+
+1. ZWECK UND ÜBERBLICK
+----------------------
+
+MyFuelScope sammelt historische Preise für Benzin 95 an sechs festgelegten
+Tankstellen in Österreich. Die Messwerte werden lokal in einer SQLite-
+Datenbank gespeichert und über eine lokale Webanwendung bereitgestellt.
+
+Ein Windows-PC ruft die lokale API ab, erstellt drei JSON-Dateien und
+veröffentlicht diese über GitHub. GitHub Pages stellt die veröffentlichten
+JSON-Daten mit einer statischen HTML-Seite dar.
+
+Zusätzlich werden Brent-Rohölpreise von FRED in derselben SQLite-Datenbank
+gespeichert. Der derzeit geprüfte öffentliche Export enthält jedoch nur
+Benzinpreise, Tagestiefstände und Preisverläufe. Ein öffentlicher Brent-
+Datenexport ist im aktuellen Windows-Export nicht implementiert.
+
+2. SYSTEMKOMPONENTEN UND DATEIEN
+-------------------------------
+
+NAS:
+  /volume1/MyFuelScope/preise.db
+      SQLite-Datenbank mit Tankstellenpreisen, Abrufprotokollen und
+      Brent-Beobachtungen.
+
+  /volume1/MyFuelScope/sammle_preise.py
+      Holt Benzinpreise für die sechs konfigurierten Tankstellen.
+
+  /volume1/MyFuelScope/sammle_brent.py
+      Importiert Brent-Beobachtungen aus FRED.
+
+  /volume1/MyFuelScope/backup_db.sh
+      Erstellt eine SQLite-Datenbanksicherung und prüft deren Integrität.
+
+  /volume1/MyFuelScope/webapp/server.py
+      Lokaler HTTP-Server auf 10.0.0.2:8080. Liefert die lokale HTML-
+      Oberfläche und API-Endpunkte für Preis-, Tiefststands- und
+      Verlaufsdaten.
+
+Windows:
+  E:\MyFuelScope\Skripte\MyFuelScope_update_all.ps1
+      Startet Export und anschließende GitHub-Veröffentlichung.
+
+  E:\MyFuelScope\Skripte\MyFuelScope_export.ps1
+      Ruft die lokale API ab, validiert die Daten und erstellt JSON-Dateien.
+
+  E:\MyFuelScope\Skripte\MyFuelScope_publish_github.ps1
+      Prüft die JSON-Dateien und veröffentlicht ausschließlich die
+      vorgesehenen drei Datendateien im Git-Repository.
+
+  E:\MyFuelScope\UploadMegaNz\
+      Zielordner der drei exportierten JSON-Dateien.
+
+  E:\MyFuelScope\Git\
+      Lokales Git-Repository.
+
+GitHub:
+  Skripte/
+      Versionierte Kopien der sieben Wartungs- und Automatisierungsskripte.
+
+  index.html
+      Öffentliche statische Website.
+
+  aktuelle_preise.json
+      Aktuelle veröffentlichte Preise.
+
+  tagestiefstaende.json
+      Niedrigste Preise des laufenden Tages.
+
+  preisverlauf.json
+      Tages- und Wochenverläufe für die sechs Tankstellen.
+
+  images/
+      Logos und Bilder für die Website.
+
+3. TANKSTELLEN UND PREISQUELLEN
+-------------------------------
+
+Die Sammelroutine enthält sechs fest konfigurierte Tankstellen:
+
+  35847    BP Frohsdorf
+  1471187  Turmöl / Quick, Günser Straße
+  1354682  JET, Günser Straße 92
+  1126532  Avanti, Neunkirchner Straße 118
+  1354928  JET, Puchberger Straße 1
+  1354801  Avanti, Puchberger Straße 44
+
+Die Quellzuordnung im aktuellen Sammelskript:
+
+  BP:
+    BP-Retail-Locator-API, Standort AT-410.
+
+  JET Günser Straße:
+    HTML-Seite der JET-Website für diese Tankstelle.
+
+  JET Puchberger Straße:
+    HTML-Seite der JET-Website für diese Tankstelle.
+
+  Turmöl und beide Avanti-Stationen:
+    E-Control-Spritpreis-API, Kraftstofftyp SUP.
+
+Die Zuordnung und Extraktion sind in sammle_preise.py hinterlegt. Änderungen
+an Webseiten, API-Antworten oder HTML-Elementen können Anpassungen am Parser
+erforderlich machen.
+
+Die Routine verarbeitet Super/Benzin 95 unter dem Kraftstoffcode SUP.
+Die gespeicherten Preise sind Euro pro Liter.
+
+4. ERFASSUNG DER BENZINPREISE
+-----------------------------
+
+sammle_preise.py läuft auf dem NAS mit Python 2.7 und verwendet unter
+anderem sqlite3, urllib-/HTML-Hilfsfunktionen und wget.
+
+Ablauf:
+
+  1. Abrufzeitpunkt ermitteln.
+  2. Für jede der sechs Tankstellen die konfigurierte Quelle abfragen.
+  3. Den Superpreis aus der API-Antwort oder HTML-Seite extrahieren.
+  4. Erfolgreiche Messungen in fuel_prices speichern.
+  5. Erfolg bzw. Fehler in fetch_log protokollieren.
+  6. Die Datenbanktransaktion abschließen und die Verbindung schließen.
+
+Die Messung enthält einen Abrufzeitpunkt captured_at, die station_id,
+den Kraftstofftyp SUP und price_eur.
+
+Bei erfolgreichem Abruf wird der Preis protokolliert. Bei einem Fehler wird
+ein ERROR-Eintrag in fetch_log geschrieben. Ein fehlgeschlagener Abruf darf
+nicht als Preis 0 interpretiert werden.
+
+Das Skript protokolliert Fehler pro Tankstelle, damit Fehler an einer Station
+die Bearbeitung der übrigen Stationen nicht grundsätzlich verhindern.
+
+Wichtig: Ein fehlgeschlagener neuer Abruf bedeutet nicht automatisch, dass
+der zuvor gespeicherte Messwert gelöscht wird. Der zuletzt gespeicherte
+Messwert kann deshalb älter sein als der aktuelle Abrufzeitpunkt.
+
+5. BRENT-ROHÖLDATEN
+-------------------
+
+sammle_brent.py liest die CSV-Zeitreihe von FRED:
+
+  https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILBRENTEU
+
+Die verwendete FRED-Reihe lautet DCOILBRENTEU. Sie enthält Brent-Preise in
+US-Dollar pro Barrel.
+
+Das Skript:
+  - lädt die CSV-Datei,
+  - liest observation_date und DCOILBRENTEU,
+  - ignoriert Datensätze vor START_DATE,
+  - überspringt fehlende Preiswerte,
+  - prüft Datum und Zahlenwert,
+  - fügt neue Beobachtungen mit INSERT OR IGNORE ein,
+  - schreibt die Ergebnisse in brent_prices.
+
+Im aktuell veröffentlichten Skript ist START_DATE auf 2026-10-18 gesetzt.
+Dieser Wert muss bei Änderungen bewusst angepasst werden.
+
+INSERT OR IGNORE verhindert, dass bereits vorhandene Beobachtungen mit
+demselben Datenbankschlüssel erneut eingefügt werden. Die genaue
+Eindeutigkeit hängt von der Definition der Tabelle ab.
+
+Brent wird in der Datenbank gespeichert. Der geprüfte Windows-Export ruft
+jedoch nur /api/prices, /api/lows und /api/history ab. Eine Veröffentlichung
+von Brent-Daten über JSON und eine Darstellung auf der öffentlichen Website
+sind daher derzeit nicht Bestandteil des implementierten Exportablaufs.
+
+6. DATENBANK UND LOKALE WEBANWENDUNG
+------------------------------------
+
+Die Datenbank liegt unter:
+
+  /volume1/MyFuelScope/preise.db
+
+Die Skripte verwenden unter anderem folgende Tabellen:
+
+  stations
+      Stammdaten der Tankstellen.
+
+  fuel_prices
+      Historische Benzinpreismessungen.
+
+  fetch_log
+      Protokoll der erfolgreichen und fehlgeschlagenen Abrufe.
+
+  brent_prices
+      Brent-Beobachtungen von FRED.
+
+Die vollständige Datenbankstruktur ist in der tatsächlich installierten
+Datenbank maßgeblich. Diese Dokumentation ersetzt keine Prüfung der
+Tabellendefinitionen.
+
+server.py stellt einen HTTP-Server auf 10.0.0.2:8080 bereit.
+
+Wichtige API-Endpunkte:
+
+  /api/prices
+      Liefert für jede konfigurierte Tankstelle den zuletzt gespeicherten
+      Superpreis samt Stammdaten und Messzeitpunkt.
+
+  /api/lows
+      Ermittelt den niedrigsten gespeicherten Preis des aktuellen Tages
+      und den zugehörigen Zeitpunkt. Falls keine Messung vorliegt, bleibt
+      der Tiefstpreis leer.
+
+  /api/history?station_id=ID&period=today
+      Liefert Messpunkte des laufenden Tages.
+
+  /api/history?station_id=ID&period=week
+      Liefert Messpunkte der letzten sieben Tage.
+
+Der lokale Server liest Daten aus SQLite und stellt sie der lokalen
+Weboberfläche sowie dem Windows-Export zur Verfügung.
+
+7. WINDOWS-EXPORT
+-----------------
+
+MyFuelScope_export.ps1 ruft die lokale API unter folgender Basisadresse ab:
+
+  http://10.0.0.2:8080
+
+Der Export schreibt in:
+
+  E:\MyFuelScope\UploadMegaNz
+
+Die drei Ausgabedateien:
+
+  aktuelle_preise.json
+      Enthält die aktuellen Datensätze für alle sechs Stationen. Ein
+      fehlender Preis darf null sein und wird nicht durch 0 ersetzt.
+
+  tagestiefstaende.json
+      Enthält den niedrigsten Preis des laufenden Tages je Station.
+      Ein fehlender Tiefstpreis bleibt leer/null.
+
+  preisverlauf.json
+      Enthält generated_at und für jede Station die Bereiche today und week
+      samt Messpunkten.
+
+Der Export prüft unter anderem:
+  - ob API-Antworten vorhanden sind,
+  - ob genau sechs Datensätze geliefert werden,
+  - ob ausschließlich freigegebene station_id-Werte vorkommen,
+  - ob IDs eindeutig sind,
+  - ob erforderliche Felder vorhanden sind,
+  - ob vorhandene Preise positive, gültige Zahlen sind,
+  - ob Verlaufspunkte gültige Messzeitpunkte und Preise besitzen.
+
+Erst nach erfolgreicher Validierung werden temporäre JSON-Dateien geschrieben
+und an die endgültigen Dateinamen verschoben. Bei einem Fehler meldet das
+Skript den Export als fehlgeschlagen und liefert einen Fehlercode.
+
+8. GITHUB-VERÖFFENTLICHUNG
+--------------------------
+
+MyFuelScope_publish_github.ps1 übernimmt nur diese drei Dateien:
+
+  aktuelle_preise.json
+  tagestiefstaende.json
+  preisverlauf.json
+
+Ablauf:
+
+  1. Git-Status prüfen.
+  2. Abbrechen, wenn unerwartete Repository-Änderungen vorhanden sind.
+  3. Vorhandensein und JSON-Struktur der Quelldateien prüfen.
+  4. Die drei JSON-Dateien ins Repository kopieren.
+  5. Erneut den Git-Status kontrollieren.
+  6. Nur die drei vorgesehenen Dateien vormerken.
+  7. Prüfen, ob unerwartete Dateien vorgemerkt sind.
+  8. Bei tatsächlichen Änderungen einen Commit erstellen.
+  9. Den Commit nach origin/main pushen.
+
+Der Commit für reguläre Datenaktualisierungen heißt:
+
+  Update fuel price data
+
+Wenn keine Änderungen an den JSON-Dateien vorhanden sind, ist kein Commit
+erforderlich. Unerwartete Änderungen sollen nicht unbemerkt mitveröffentlicht
+werden.
+
+9. AUTOMATISIERUNG UND ZEITPLÄNE
+--------------------------------
+
+Nach den zuletzt dokumentierten Einstellungen:
+
+NAS:
+  Benzinpreise:
+    Stündlich zur vollen Stunde.
+    Cron-Eintrag:
+    0 * * * * root /usr/bin/python /volume1/MyFuelScope/sammle_preise.py
+
+  Brent:
+    Täglich um 08:10 Uhr NAS-Zeit.
+    Cron-Eintrag:
+    10 8 * * * root /usr/bin/python /volume1/MyFuelScope/sammle_brent.py
+
+  Datenbank-Backup:
+    Täglich um 21:10 Uhr NAS-Zeit.
+    Cron-Eintrag:
+    10 21 * * * root /volume1/MyFuelScope/backup_db.sh
+
+Windows:
+  Geplante Aufgabe:
+    MyFuelScope JSON Export
+
+  Zuletzt bestätigter Zeitplan:
+    Stündlich bei Minute 01.
+
+  Startskript:
+    E:\MyFuelScope\Skripte\MyFuelScope_update_all.ps1
+
+Die Windows-Aufgabe startet zuerst den Export und danach die Veröffentlichung.
+Schlägt ein Teilschritt fehl, beendet das Startskript den Ablauf mit einem
+Fehlercode.
+
+Die Zeitpläne sind zuletzt dokumentierte Konfigurationen. Bei einer Änderung
+müssen die tatsächlichen Einstellungen auf NAS und Windows überprüft werden.
+
+10. DATENBANK-BACKUP
+--------------------
+
+backup_db.sh verwendet:
+
+  Datenbank:
+    /volume1/MyFuelScope/preise.db
+
+  Backup:
+    /volume1/MyFuelScope/backups/preise.db
+
+  Protokoll:
+    /volume1/MyFuelScope/backups/backup.log
+
+Das Skript nutzt das SQLite-Backup-Kommando und führt danach PRAGMA
+integrity_check auf der Sicherung aus. Bei erfolgreicher Prüfung wird
+Dateigröße und Erfolg protokolliert. Bei Fehlern liefert es einen
+Fehlercode.
+
+Eine erfolgreiche Integritätsprüfung bestätigt die strukturelle
+Integrität der Backup-Datenbank. Sie beweist nicht, dass eine Sicherung
+außerhalb des NAS vorhanden ist oder eine Wiederherstellung erfolgreich
+getestet wurde.
+
+11. ÖFFENTLICHE WEBSITE
+-----------------------
+
+Die öffentliche Seite liegt unter:
+
+  https://spritly.github.io/MyFuelScope/
+
+index.html ist eine statische HTML-, CSS- und JavaScript-Anwendung.
+
+Sie lädt die veröffentlichten JSON-Dateien, zeigt:
+  - den Zeitpunkt der letzten Aktualisierung,
+  - die aktuell günstigste Tankstelle,
+  - die sechs Tankstellen mit Adresse und Preis,
+  - den niedrigsten Preis des Tages,
+  - Preisverläufe für den laufenden Tag,
+  - Preisverläufe für die letzten sieben Tage.
+
+Die Anzeige behandelt fehlende oder ungültige Preise als nicht verfügbar.
+Sie soll fehlende Werte nicht als 0 € darstellen.
+
+Die Seite prüft regelmäßig auf aktualisierte Daten. Die Anzeige kann nur
+die zuletzt erfolgreich auf GitHub veröffentlichten JSON-Daten verwenden.
+Ein neuer Datenbankeintrag auf dem NAS ist erst nach erfolgreichem Export,
+Commit und Push öffentlich sichtbar.
+
+Die lokale NAS-Webanwendung und die statische GitHub-Pages-Seite sind zwei
+getrennte Oberflächen mit unterschiedlichen Datenzugriffswegen.
+
+12. DATENFLUSS – VOM ABRUF BIS ZUR ANZEIGE
+------------------------------------------
+
+Benzinpreise:
+
+  Tankstellenquellen / E-Control
+             |
+             v
+  sammle_preise.py auf dem NAS
+             |
+             v
+  SQLite: fuel_prices und fetch_log
+             |
+             v
+  server.py / lokale API
+             |
+             v
+  MyFuelScope_export.ps1 auf Windows
+             |
+             v
+  drei JSON-Dateien im Upload-Ordner
+             |
+             v
+  MyFuelScope_publish_github.ps1
+             |
+             v
+  Git-Commit und Push auf main
+             |
+             v
+  GitHub Pages / index.html
+             |
+             v
+  Anzeige im Browser
+
+Brent:
+
+  FRED CSV / DCOILBRENTEU
+             |
+             v
+  sammle_brent.py auf dem NAS
+             |
+             v
+  SQLite: brent_prices
+
+Der letzte Pfad endet im derzeit implementierten System bei der Datenbank.
+Ein Export, eine Veröffentlichung und eine öffentliche Visualisierung von
+Brent sind gesonderte Erweiterungen.
+
+13. FEHLERBEHANDLUNG UND DATENQUALITÄT
+--------------------------------------
+
+Grundsätze:
+
+  - Fehlende Preise sind fehlende Werte, keine Nullpreise.
+  - Ein fehlgeschlagener Abruf darf nicht als erfolgreicher Preis gelten.
+  - Ungültige oder unvollständige Exportdaten sollen die Veröffentlichung
+    verhindern.
+  - Die Veröffentlichung soll ausschließlich die drei erwarteten
+    JSON-Dateien verändern.
+  - Ein erfolgreicher Git-Push bedeutet nicht automatisch, dass alle
+    Datenquellen aktuell sind.
+  - Der Abrufzeitpunkt und der vom Anbieter angegebene Preiszeitpunkt sind
+    unterschiedliche Angaben und dürfen nicht verwechselt werden.
+
+Bei Problemen in dieser Reihenfolge prüfen:
+
+  1. NAS-Systemzeit und Netzwerkverbindung.
+  2. Letzte Einträge in fetch_log.
+  3. Logdatei von sammle_preise.py.
+  4. Logdatei von sammle_brent.py.
+  5. Erreichbarkeit der lokalen API unter 10.0.0.2:8080.
+  6. Exportdateien und deren Zeitstempel.
+  7. Ergebnis der Windows-Aufgabe.
+  8. Git-Status und letzten Push.
+  9. Browseranzeige und veröffentlichte JSON-Dateien.
+
+14. WARTUNG UND ÄNDERUNGEN
+--------------------------
+
+Bei Änderungen an Datenquellen:
+  - URL und Antwortstruktur prüfen.
+  - Parser und Fehlerbehandlung testen.
+  - Fehlende Werte und ungültige Preise prüfen.
+  - Datenbankeinträge kontrollieren.
+
+Bei Änderungen am API-Vertrag:
+  - server.py und MyFuelScope_export.ps1 gemeinsam prüfen.
+  - Feldnamen, Datentypen, Zeiträume und Nullwerte abstimmen.
+  - Alle drei JSON-Dateien validieren.
+  - Website gegen die neue Datenstruktur testen.
+
+Bei Änderungen am Website-Code:
+  - index.html und benötigte Bilder prüfen.
+  - JSON-Dateien und IDs der sechs Stationen berücksichtigen.
+  - Darstellung fehlender Preise prüfen.
+  - GitHub Pages nach dem Push testen.
+
+Bei jeder funktionalen Änderung:
+  1. Änderungen in einem eigenen Commit festhalten.
+  2. Diese Dokumentation ergänzen oder aktualisieren.
+  3. Bei wesentlichen Änderungen eine neue zeitgestempelte Dokumentation
+     erstellen.
+  4. Skripte, Website und Dokumentation gemeinsam oder in nachvollziehbaren
+     aufeinanderfolgenden Commits veröffentlichen.
+  5. Nach dem Push die Website und die veröffentlichten Daten kontrollieren.
+
+15. BEKANNTE OFFENE PRÜFPUNKTE
+------------------------------
+
+Die folgenden Punkte müssen bei Gelegenheit direkt auf dem NAS oder in der
+tatsächlichen Konfiguration überprüft werden:
+
+  - Tatsächliche SQLite-Tabellendefinitionen und Indizes.
+  - Tatsächliche Cron-Konfiguration nach dem letzten Systemupdate.
+  - Tatsächlicher Status und Startmechanismus von server.py.
+  - Aufbewahrungsdauer und Speicherplatz der Backups.
+  - Ob eine Wiederherstellung aus einem Backup bereits getestet wurde.
+  - Ob Brent künftig exportiert und öffentlich visualisiert werden soll.
+  - Ob alle Zeitstempel einheitlich in derselben Zeitzone behandelt werden.
+
+Diese Punkte sind bewusst als offene Prüfungen markiert und nicht als
+bereits bestätigte Eigenschaften beschrieben.
+
+16. REPOSITORY UND VERSIONIERUNG
+-------------------------------
+
+GitHub-Repository:
+  https://github.com/spritly/MyFuelScope
+
+Branch:
+  main
+
+Skripte:
+  https://github.com/spritly/MyFuelScope/tree/main/Skripte
+
+Website:
+  https://spritly.github.io/MyFuelScope/
+
+Die Version im Git-Repository ist die Referenz für den veröffentlichten
+Code. Lokale Dateien oder NAS-Dateien können davon abweichen. Vor Änderungen
+ist zu prüfen, welche Version tatsächlich produktiv eingesetzt wird.
+
+Ende der Dokumentation.
