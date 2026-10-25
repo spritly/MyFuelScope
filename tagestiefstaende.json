@@ -2,37 +2,37 @@
     {
         "station_id":  1126532,
         "name":  "Avanti Metro",
-        "low_price":  1.766,
-        "low_at":  "2026-10-24 18:00:01"
+        "low_price":  1.764,
+        "low_at":  "2026-10-25 01:00:02"
     },
     {
         "station_id":  1354801,
         "name":  "Avanti West",
-        "low_price":  1.766,
-        "low_at":  "2026-10-24 18:00:01"
+        "low_price":  1.764,
+        "low_at":  "2026-10-25 01:00:02"
     },
     {
         "station_id":  35847,
         "name":  "BP Frohsdorf",
         "low_price":  1.779,
-        "low_at":  "2026-10-24 08:00:01"
+        "low_at":  "2026-10-25 00:00:03"
     },
     {
         "station_id":  1354682,
         "name":  "Jet B54",
-        "low_price":  1.77,
-        "low_at":  "2026-10-24 19:00:01"
+        "low_price":  1.767,
+        "low_at":  "2026-10-25 00:00:03"
     },
     {
         "station_id":  1354928,
         "name":  "Jet West",
-        "low_price":  1.771,
-        "low_at":  "2026-10-24 19:00:01"
+        "low_price":  1.769,
+        "low_at":  "2026-10-25 00:00:03"
     },
     {
         "station_id":  1471187,
         "name":  "Turmöl B54",
-        "low_price":  1.766,
-        "low_at":  "2026-10-24 18:00:01"
+        "low_price":  1.763,
+        "low_at":  "2026-10-25 00:00:03"
     }
 ]
