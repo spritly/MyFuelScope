@@ -51,7 +51,6 @@ URLS = {
 }
 
 def download(url, filename):
-    """Lädt eine URL mit wget herunter und liefert den Dateiinhalt zurück."""
     # -4 erzwingt IPv4; -q unterdrückt wget-Ausgaben, -O legt die Zieldatei fest.
     rc = subprocess.call(['wget', '-4', '-q', '-O', filename, url])
     # Leere oder fehlende Dateien dürfen nicht als gültige Antwort weiterlaufen.
@@ -64,7 +63,6 @@ def download(url, filename):
         f.close()
 
 def number_from_text(text):
-    """Liest einen Preis im Format mit drei Nachkommastellen aus Text/HTML."""
     # HTML-Entities (z. B. &euro;) vor der Suche in Textzeichen umwandeln.
     text = HTMLParser().unescape(text)
     m = re.search(r'([0-9]+,[0-9]{3})', text)
@@ -74,7 +72,6 @@ def number_from_text(text):
     return float(m.group(1).replace(',', '.'))
 
 def get_bp():
-    """Liest den Eurosuper-Preis und den vom BP-Dienst gemeldeten Zeitstempel."""
     raw = download(URLS['bp'], TMP + '/preisstatistik_bp.json')
     data = json.loads(raw)
     pricing = data.get('fuel_pricing', {})
@@ -86,7 +83,6 @@ def get_bp():
     return price, updated
 
 def get_jet(kind):
-    """Liest Super 95 und den Zeitstempel aus der jeweiligen JET-HTML-Seite."""
     raw = download(URLS[kind], TMP + '/preisstatistik_' + kind + '.html')
     # Der Preis steht im HTML-Element mit der ID product_price_fuel_super.
     m = re.search(
@@ -105,7 +101,6 @@ def get_jet(kind):
     return price, updated
 
 def get_econtrol(station_id):
-    """Fragt E-Control ab und sucht die Tankstelle über ihre ID in der Antwort."""
     lat, lon = COORDS[station_id]
     url = (
         'https://api.e-control.at/sprit/1.0/search/gas-stations/by-address'
