@@ -5,8 +5,8 @@
         "address":  "Günser Straße 28",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-26 07:00:02",
-        "price_eur":  1.741
+        "captured_at":  "2026-10-26 08:00:02",
+        "price_eur":  1.739
     },
     {
         "station_id":  1126532,
@@ -14,7 +14,7 @@
         "address":  "Neunkirchner Straße 118",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-26 07:00:02",
+        "captured_at":  "2026-10-26 08:00:02",
         "price_eur":  1.744
     },
     {
@@ -23,7 +23,7 @@
         "address":  "Puchberger Straße 44",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-26 07:00:02",
+        "captured_at":  "2026-10-26 08:00:02",
         "price_eur":  1.744
     },
     {
@@ -32,17 +32,8 @@
         "address":  "Günser Straße 92",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-26 07:00:02",
-        "price_eur":  1.745
-    },
-    {
-        "station_id":  1354928,
-        "name":  "Jet West",
-        "address":  "Puchberger Straße 1",
-        "postal_code":  "2700",
-        "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-26 07:00:02",
-        "price_eur":  1.758
+        "captured_at":  "2026-10-26 08:00:02",
+        "price_eur":  1.744
     },
     {
         "station_id":  35847,
@@ -50,7 +41,16 @@
         "address":  "Wiener Neustädter Straße 5",
         "postal_code":  "2821",
         "city":  "Lanzenkirchen",
-        "captured_at":  "2026-10-26 07:00:02",
-        "price_eur":  1.779
+        "captured_at":  "2026-10-26 08:00:02",
+        "price_eur":  1.749
+    },
+    {
+        "station_id":  1354928,
+        "name":  "Jet West",
+        "address":  "Puchberger Straße 1",
+        "postal_code":  "2700",
+        "city":  "Wiener Neustadt",
+        "captured_at":  "2026-10-26 08:00:02",
+        "price_eur":  1.758
     }
 ]
