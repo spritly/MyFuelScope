@@ -8,8 +8,8 @@
     {
         "station_id":  1354801,
         "name":  "Avanti West",
-        "low_price":  null,
-        "low_at":  null
+        "low_price":  1.727,
+        "low_at":  "2026-10-27 01:00:02"
     },
     {
         "station_id":  35847,
