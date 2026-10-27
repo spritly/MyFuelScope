@@ -1,30 +1,12 @@
 [
     {
-        "station_id":  1126532,
-        "name":  "Avanti Metro",
-        "address":  "Neunkirchner Straße 118",
-        "postal_code":  "2700",
-        "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-27 11:00:01",
-        "price_eur":  1.723
-    },
-    {
-        "station_id":  1354801,
-        "name":  "Avanti West",
-        "address":  "Puchberger Straße 44",
-        "postal_code":  "2700",
-        "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-27 11:00:01",
-        "price_eur":  1.723
-    },
-    {
         "station_id":  1471187,
         "name":  "Turmöl B54",
         "address":  "Günser Straße 28",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-27 11:00:01",
-        "price_eur":  1.723
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.794
     },
     {
         "station_id":  1354682,
@@ -32,17 +14,26 @@
         "address":  "Günser Straße 92",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-27 12:00:02",
-        "price_eur":  1.727
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.809
     },
     {
-        "station_id":  35847,
-        "name":  "BP Frohsdorf",
-        "address":  "Wiener Neustädter Straße 5",
-        "postal_code":  "2821",
-        "city":  "Lanzenkirchen",
-        "captured_at":  "2026-10-27 12:00:02",
-        "price_eur":  1.729
+        "station_id":  1126532,
+        "name":  "Avanti Metro",
+        "address":  "Neunkirchner Straße 118",
+        "postal_code":  "2700",
+        "city":  "Wiener Neustadt",
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.819
+    },
+    {
+        "station_id":  1354801,
+        "name":  "Avanti West",
+        "address":  "Puchberger Straße 44",
+        "postal_code":  "2700",
+        "city":  "Wiener Neustadt",
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.819
     },
     {
         "station_id":  1354928,
@@ -50,7 +41,16 @@
         "address":  "Puchberger Straße 1",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-27 12:00:02",
-        "price_eur":  1.758
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.819
+    },
+    {
+        "station_id":  35847,
+        "name":  "BP Frohsdorf",
+        "address":  "Wiener Neustädter Straße 5",
+        "postal_code":  "2821",
+        "city":  "Lanzenkirchen",
+        "captured_at":  "2026-10-27 13:00:01",
+        "price_eur":  1.839
     }
 ]
