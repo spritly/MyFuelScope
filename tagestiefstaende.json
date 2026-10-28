@@ -2,20 +2,20 @@
     {
         "station_id":  1126532,
         "name":  "Avanti Metro",
-        "low_price":  1.779,
-        "low_at":  "2026-10-28 00:00:01"
+        "low_price":  1.774,
+        "low_at":  "2026-10-28 07:00:01"
     },
     {
         "station_id":  1354801,
         "name":  "Avanti West",
-        "low_price":  1.779,
-        "low_at":  "2026-10-28 01:00:02"
+        "low_price":  1.774,
+        "low_at":  "2026-10-28 07:00:01"
     },
     {
         "station_id":  35847,
         "name":  "BP Frohsdorf",
-        "low_price":  1.789,
-        "low_at":  "2026-10-28 00:00:01"
+        "low_price":  1.779,
+        "low_at":  "2026-10-28 07:00:01"
     },
     {
         "station_id":  1354682,
