@@ -1,182 +1,90 @@
 {
-    "generated_at":  "2026-10-28 19:01:03",
+    "generated_at":  "2026-10-29 18:01:05",
     "stations":  [
                      {
                          "station_id":  1126532,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:02",
-                                       "count":  18,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:04",
+                                       "count":  17,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 00:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 00:00:02",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 01:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 02:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 03:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 04:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 05:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 05:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 06:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 06:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 07:00:01",
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.781
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 08:00:02",
+                                                          "price_eur":  1.776
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 09:00:01",
                                                           "price_eur":  1.774
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.774
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.773
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.774
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.772
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.774
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.757
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
                                                           "price_eur":  1.794
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.792
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.792
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 17:00:01",
-                                                          "price_eur":  1.791
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 18:00:01",
+                                                          "captured_at":  "2026-10-29 16:00:02",
                                                           "price_eur":  1.784
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 17:00:01",
+                                                          "price_eur":  1.783
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 18:00:01",
                                                           "price_eur":  1.783
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  158,
+                                      "start":  "2026-10-22 18:01:04",
+                                      "end":  "2026-10-29 18:01:04",
+                                      "count":  157,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.804
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.801
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.792
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 13:00:01",
-                                                         "price_eur":  1.829
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.784
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.784
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.783
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.782
@@ -720,6 +628,90 @@
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
                                                          "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.782
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 00:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.776
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.774
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.773
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.772
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.794
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.792
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.784
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
+                                                         "price_eur":  1.783
                                                      }
                                                  ]
                                   }
@@ -728,178 +720,86 @@
                          "station_id":  1354801,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:03",
-                                       "count":  18,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:04",
+                                       "count":  17,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 01:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 02:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 03:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 04:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 05:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 05:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 06:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 06:00:01",
+                                                          "price_eur":  1.781
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 07:00:01",
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.781
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 08:00:02",
+                                                          "price_eur":  1.776
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 09:00:01",
                                                           "price_eur":  1.774
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.774
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.773
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.774
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.772
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.774
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.757
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 13:00:02",
+                                                          "captured_at":  "2026-10-29 13:00:02",
                                                           "price_eur":  1.794
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
                                                           "price_eur":  1.794
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.792
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.792
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 17:00:01",
-                                                          "price_eur":  1.791
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 18:00:01",
+                                                          "captured_at":  "2026-10-29 16:00:02",
                                                           "price_eur":  1.784
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 17:00:01",
+                                                          "price_eur":  1.783
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 18:00:01",
                                                           "price_eur":  1.783
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  157,
+                                      "start":  "2026-10-22 18:01:04",
+                                      "end":  "2026-10-29 18:01:04",
+                                      "count":  156,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.804
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.801
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.792
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 13:00:01",
-                                                         "price_eur":  1.829
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.784
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.784
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.783
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.782
@@ -1439,6 +1339,90 @@
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
                                                          "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.782
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.776
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.774
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.773
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.772
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 13:00:02",
+                                                         "price_eur":  1.794
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.794
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.792
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.784
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
+                                                         "price_eur":  1.783
                                                      }
                                                  ]
                                   }
@@ -1447,178 +1431,90 @@
                          "station_id":  1471187,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:03",
-                                       "count":  19,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:04",
+                                       "count":  18,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 00:00:01",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 00:00:02",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 01:00:01",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 02:00:01",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 03:00:01",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 04:00:01",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 05:00:02",
-                                                          "price_eur":  1.778
+                                                          "captured_at":  "2026-10-29 05:00:01",
+                                                          "price_eur":  1.78
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 06:00:02",
-                                                          "price_eur":  1.758
+                                                          "captured_at":  "2026-10-29 06:00:01",
+                                                          "price_eur":  1.777
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 07:00:01",
-                                                          "price_eur":  1.758
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.777
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.758
+                                                          "captured_at":  "2026-10-29 08:00:02",
+                                                          "price_eur":  1.776
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.758
+                                                          "captured_at":  "2026-10-29 09:00:01",
+                                                          "price_eur":  1.774
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.758
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.773
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.757
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.772
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 13:00:02",
+                                                          "captured_at":  "2026-10-29 13:00:02",
                                                           "price_eur":  1.794
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
                                                           "price_eur":  1.793
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.792
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.792
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 17:00:01",
-                                                          "price_eur":  1.791
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 18:00:01",
+                                                          "captured_at":  "2026-10-29 16:00:02",
                                                           "price_eur":  1.784
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 17:00:01",
+                                                          "price_eur":  1.783
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 18:00:01",
                                                           "price_eur":  1.783
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  159,
+                                      "start":  "2026-10-22 18:01:04",
+                                      "end":  "2026-10-29 18:01:04",
+                                      "count":  160,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.804
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.802
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.801
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.792
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.793
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.784
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.783
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.782
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.782
@@ -2170,6 +2066,94 @@
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
                                                          "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.782
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 00:00:02",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.78
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.777
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.777
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.776
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.774
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.773
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.772
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 13:00:02",
+                                                         "price_eur":  1.794
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.793
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.792
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.784
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.783
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
+                                                         "price_eur":  1.783
                                                      }
                                                  ]
                                   }
@@ -2178,194 +2162,94 @@
                          "station_id":  1354682,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:03",
-                                       "count":  20,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:04",
+                                       "count":  19,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 00:00:01",
+                                                          "captured_at":  "2026-10-29 00:00:02",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 01:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 02:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 03:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 04:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 05:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 06:00:01",
+                                                          "price_eur":  1.785
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.781
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 08:00:02",
                                                           "price_eur":  1.779
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 09:00:01",
+                                                          "price_eur":  1.778
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.778
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.777
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 12:00:01",
+                                                          "price_eur":  1.776
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 05:00:02",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 06:00:02",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 07:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.762
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.762
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 12:00:02",
-                                                          "price_eur":  1.761
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 13:00:02",
+                                                          "captured_at":  "2026-10-29 13:00:02",
                                                           "price_eur":  1.798
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
                                                           "price_eur":  1.798
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
-                                                          "price_eur":  1.797
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.796
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 17:00:01",
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 18:00:01",
+                                                          "captured_at":  "2026-10-29 16:00:02",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 17:00:01",
                                                           "price_eur":  1.788
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 18:00:01",
+                                                          "price_eur":  1.787
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  172,
+                                      "start":  "2026-10-22 18:01:04",
+                                      "end":  "2026-10-29 18:01:04",
+                                      "count":  171,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.807
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.806
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.798
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.798
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.797
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:05:02",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 13:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.789
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.789
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.788
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.787
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.786
@@ -2957,6 +2841,98 @@
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
                                                          "price_eur":  1.788
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.787
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.787
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 00:00:02",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.785
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.781
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.779
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.778
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.778
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.777
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 12:00:01",
+                                                         "price_eur":  1.776
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 13:00:02",
+                                                         "price_eur":  1.798
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.798
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.788
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
+                                                         "price_eur":  1.787
                                                      }
                                                  ]
                                   }
@@ -2965,194 +2941,94 @@
                          "station_id":  1354928,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:03",
-                                       "count":  20,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:05",
+                                       "count":  19,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 00:00:01",
+                                                          "captured_at":  "2026-10-29 00:00:02",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 01:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 02:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 03:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 04:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 05:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 06:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 08:00:02",
+                                                          "price_eur":  1.786
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 09:00:01",
                                                           "price_eur":  1.779
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.778
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.777
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 12:00:01",
+                                                          "price_eur":  1.777
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 05:00:02",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 06:00:02",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 07:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.779
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.771
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 12:00:02",
-                                                          "price_eur":  1.762
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 13:00:02",
+                                                          "captured_at":  "2026-10-29 13:00:02",
                                                           "price_eur":  1.799
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
                                                           "price_eur":  1.799
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.797
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.797
+                                                          "captured_at":  "2026-10-29 16:00:02",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 17:00:01",
-                                                          "price_eur":  1.796
+                                                          "captured_at":  "2026-10-29 17:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 18:00:01",
-                                                          "price_eur":  1.796
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 18:00:01",
                                                           "price_eur":  1.788
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  172,
+                                      "start":  "2026-10-22 18:01:05",
+                                      "end":  "2026-10-29 18:01:05",
+                                      "count":  171,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.808
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.806
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.803
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.798
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.797
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:00:01",
-                                                         "price_eur":  1.797
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:05:02",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 13:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.798
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.794
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.788
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.788
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.787
@@ -3744,6 +3620,98 @@
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
                                                          "price_eur":  1.788
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.788
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.788
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.787
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 00:00:02",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.786
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.779
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.778
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.777
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 12:00:01",
+                                                         "price_eur":  1.777
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 13:00:02",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.797
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
+                                                         "price_eur":  1.788
                                                      }
                                                  ]
                                   }
@@ -3752,194 +3720,94 @@
                          "station_id":  35847,
                          "today":  {
                                        "label":  "Heute",
-                                       "start":  "2026-10-28 00:00:00",
-                                       "end":  "2026-10-28 19:01:03",
-                                       "count":  20,
+                                       "start":  "2026-10-29 00:00:00",
+                                       "end":  "2026-10-29 18:01:05",
+                                       "count":  19,
                                        "points":  [
                                                       {
-                                                          "captured_at":  "2026-10-28 00:00:01",
+                                                          "captured_at":  "2026-10-29 00:00:02",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 01:00:02",
+                                                          "captured_at":  "2026-10-29 01:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 02:00:02",
+                                                          "captured_at":  "2026-10-29 02:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 03:00:01",
+                                                          "captured_at":  "2026-10-29 03:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 04:00:02",
+                                                          "captured_at":  "2026-10-29 04:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 05:00:02",
+                                                          "captured_at":  "2026-10-29 05:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 06:00:02",
+                                                          "captured_at":  "2026-10-29 06:00:01",
                                                           "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 07:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 07:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 08:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 08:00:02",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 09:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 09:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 10:00:01",
-                                                          "price_eur":  1.779
+                                                          "captured_at":  "2026-10-29 10:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 11:00:02",
-                                                          "price_eur":  1.769
+                                                          "captured_at":  "2026-10-29 11:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 12:00:02",
-                                                          "price_eur":  1.769
+                                                          "captured_at":  "2026-10-29 12:00:01",
+                                                          "price_eur":  1.789
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 13:00:02",
-                                                          "price_eur":  1.859
+                                                          "captured_at":  "2026-10-29 13:00:02",
+                                                          "price_eur":  1.869
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 14:00:02",
+                                                          "captured_at":  "2026-10-29 14:00:02",
+                                                          "price_eur":  1.869
+                                                      },
+                                                      {
+                                                          "captured_at":  "2026-10-29 15:00:01",
                                                           "price_eur":  1.849
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 15:00:01",
-                                                          "price_eur":  1.849
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 16:00:01",
-                                                          "price_eur":  1.849
-                                                      },
-                                                      {
-                                                          "captured_at":  "2026-10-28 17:00:01",
+                                                          "captured_at":  "2026-10-29 16:00:02",
                                                           "price_eur":  1.799
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 18:00:01",
+                                                          "captured_at":  "2026-10-29 17:00:01",
                                                           "price_eur":  1.799
                                                       },
                                                       {
-                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                          "captured_at":  "2026-10-29 18:00:01",
                                                           "price_eur":  1.799
                                                       }
                                                   ]
                                    },
                          "week":  {
                                       "label":  "Letzte 7 Tage",
-                                      "start":  "2026-10-21 19:01:03",
-                                      "end":  "2026-10-28 19:01:03",
-                                      "count":  172,
+                                      "start":  "2026-10-22 18:01:05",
+                                      "end":  "2026-10-29 18:01:05",
+                                      "count":  171,
                                       "points":  [
-                                                     {
-                                                         "captured_at":  "2026-10-21 20:00:02",
-                                                         "price_eur":  1.819
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 21:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 22:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-21 23:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 00:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 01:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 02:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 03:00:02",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 04:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 05:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 06:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 07:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 08:00:01",
-                                                         "price_eur":  1.809
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 09:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 10:00:02",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 11:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 12:05:02",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 13:00:01",
-                                                         "price_eur":  1.839
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 14:00:01",
-                                                         "price_eur":  1.819
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 15:00:02",
-                                                         "price_eur":  1.819
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 16:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 17:00:01",
-                                                         "price_eur":  1.799
-                                                     },
-                                                     {
-                                                         "captured_at":  "2026-10-22 18:00:01",
-                                                         "price_eur":  1.789
-                                                     },
                                                      {
                                                          "captured_at":  "2026-10-22 19:00:01",
                                                          "price_eur":  1.789
@@ -4530,6 +4398,98 @@
                                                      },
                                                      {
                                                          "captured_at":  "2026-10-28 19:00:02",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 20:00:01",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 21:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 22:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-28 23:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 00:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 01:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 02:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 03:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 04:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 05:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 06:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 07:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 08:00:02",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 09:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 10:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 11:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 12:00:01",
+                                                         "price_eur":  1.789
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 13:00:02",
+                                                         "price_eur":  1.869
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 14:00:02",
+                                                         "price_eur":  1.869
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 15:00:01",
+                                                         "price_eur":  1.849
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 16:00:02",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 17:00:01",
+                                                         "price_eur":  1.799
+                                                     },
+                                                     {
+                                                         "captured_at":  "2026-10-29 18:00:01",
                                                          "price_eur":  1.799
                                                      }
                                                  ]
