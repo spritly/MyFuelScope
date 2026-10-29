@@ -1,11 +1,20 @@
 [
     {
+        "station_id":  1471187,
+        "name":  "Turmöl B54",
+        "address":  "Günser Straße 28",
+        "postal_code":  "2700",
+        "city":  "Wiener Neustadt",
+        "captured_at":  "2026-10-29 21:00:01",
+        "price_eur":  1.78
+    },
+    {
         "station_id":  1126532,
         "name":  "Avanti Metro",
         "address":  "Neunkirchner Straße 118",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-29 20:00:01",
+        "captured_at":  "2026-10-29 21:00:01",
         "price_eur":  1.781
     },
     {
@@ -14,16 +23,7 @@
         "address":  "Puchberger Straße 44",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-29 20:00:01",
-        "price_eur":  1.781
-    },
-    {
-        "station_id":  1471187,
-        "name":  "Turmöl B54",
-        "address":  "Günser Straße 28",
-        "postal_code":  "2700",
-        "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-29 20:00:01",
+        "captured_at":  "2026-10-29 21:00:01",
         "price_eur":  1.781
     },
     {
@@ -32,8 +32,8 @@
         "address":  "Günser Straße 92",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-29 20:00:01",
-        "price_eur":  1.786
+        "captured_at":  "2026-10-29 21:00:01",
+        "price_eur":  1.785
     },
     {
         "station_id":  1354928,
@@ -41,8 +41,8 @@
         "address":  "Puchberger Straße 1",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-10-29 20:00:01",
-        "price_eur":  1.787
+        "captured_at":  "2026-10-29 21:00:01",
+        "price_eur":  1.786
     },
     {
         "station_id":  35847,
@@ -50,7 +50,7 @@
         "address":  "Wiener Neustädter Straße 5",
         "postal_code":  "2821",
         "city":  "Lanzenkirchen",
-        "captured_at":  "2026-10-29 20:00:01",
+        "captured_at":  "2026-10-29 21:00:01",
         "price_eur":  1.799
     }
 ]
