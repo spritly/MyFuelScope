@@ -2,14 +2,14 @@
     {
         "station_id":  1126532,
         "name":  "Avanti Metro",
-        "low_price":  1.779,
-        "low_at":  "2026-10-30 00:00:02"
+        "low_price":  1.774,
+        "low_at":  "2026-10-30 07:00:01"
     },
     {
         "station_id":  1354801,
         "name":  "Avanti West",
-        "low_price":  1.779,
-        "low_at":  "2026-10-30 01:00:01"
+        "low_price":  1.774,
+        "low_at":  "2026-10-30 07:00:01"
     },
     {
         "station_id":  35847,
@@ -20,8 +20,8 @@
     {
         "station_id":  1354682,
         "name":  "Jet B54",
-        "low_price":  1.779,
-        "low_at":  "2026-10-30 00:00:02"
+        "low_price":  1.778,
+        "low_at":  "2026-10-30 07:00:01"
     },
     {
         "station_id":  1354928,
