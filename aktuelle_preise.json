@@ -5,7 +5,7 @@
         "address":  "Günser Straße 28",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-02 06:00:02",
+        "captured_at":  "2026-11-02 07:00:01",
         "price_eur":  1.693
     },
     {
@@ -14,8 +14,8 @@
         "address":  "Günser Straße 92",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-02 06:00:02",
-        "price_eur":  1.698
+        "captured_at":  "2026-11-02 07:00:01",
+        "price_eur":  1.697
     },
     {
         "station_id":  1126532,
@@ -23,7 +23,7 @@
         "address":  "Neunkirchner Straße 118",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-02 06:00:02",
+        "captured_at":  "2026-11-02 07:00:01",
         "price_eur":  1.701
     },
     {
@@ -32,7 +32,7 @@
         "address":  "Puchberger Straße 44",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-02 06:00:02",
+        "captured_at":  "2026-11-02 07:00:01",
         "price_eur":  1.701
     },
     {
@@ -41,7 +41,7 @@
         "address":  "Puchberger Straße 1",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-02 06:00:02",
+        "captured_at":  "2026-11-02 07:00:01",
         "price_eur":  1.706
     },
     {
@@ -50,7 +50,7 @@
         "address":  "Wiener Neustädter Straße 5",
         "postal_code":  "2821",
         "city":  "Lanzenkirchen",
-        "captured_at":  "2026-11-02 06:00:02",
+        "captured_at":  "2026-11-02 07:00:01",
         "price_eur":  1.749
     }
 ]
