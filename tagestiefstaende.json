@@ -14,8 +14,8 @@
     {
         "station_id":  35847,
         "name":  "BP Frohsdorf",
-        "low_price":  1.749,
-        "low_at":  "2026-11-02 00:00:01"
+        "low_price":  1.699,
+        "low_at":  "2026-11-02 08:00:01"
     },
     {
         "station_id":  1354682,
@@ -26,13 +26,13 @@
     {
         "station_id":  1354928,
         "name":  "Jet West",
-        "low_price":  1.706,
-        "low_at":  "2026-11-02 00:00:01"
+        "low_price":  1.699,
+        "low_at":  "2026-11-02 08:00:01"
     },
     {
         "station_id":  1471187,
         "name":  "Turmöl B54",
-        "low_price":  1.693,
-        "low_at":  "2026-11-02 06:00:02"
+        "low_price":  1.692,
+        "low_at":  "2026-11-02 08:00:01"
     }
 ]
