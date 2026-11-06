@@ -14,14 +14,14 @@
     {
         "station_id":  35847,
         "name":  "BP Frohsdorf",
-        "low_price":  1.689,
-        "low_at":  "2026-11-06 00:00:02"
+        "low_price":  1.679,
+        "low_at":  "2026-11-06 16:00:02"
     },
     {
         "station_id":  1354682,
         "name":  "Jet B54",
-        "low_price":  1.678,
-        "low_at":  "2026-11-06 15:00:02"
+        "low_price":  1.677,
+        "low_at":  "2026-11-06 16:00:02"
     },
     {
         "station_id":  1354928,
