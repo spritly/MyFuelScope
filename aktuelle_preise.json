@@ -1,11 +1,20 @@
 [
     {
+        "station_id":  1471187,
+        "name":  "Turmöl B54",
+        "address":  "Günser Straße 28",
+        "postal_code":  "2700",
+        "city":  "Wiener Neustadt",
+        "captured_at":  "2026-11-08 10:00:02",
+        "price_eur":  1.646
+    },
+    {
         "station_id":  1126532,
         "name":  "Avanti Metro",
         "address":  "Neunkirchner Straße 118",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-08 09:00:02",
+        "captured_at":  "2026-11-08 10:00:02",
         "price_eur":  1.647
     },
     {
@@ -14,16 +23,7 @@
         "address":  "Puchberger Straße 44",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-08 09:00:02",
-        "price_eur":  1.647
-    },
-    {
-        "station_id":  1471187,
-        "name":  "Turmöl B54",
-        "address":  "Günser Straße 28",
-        "postal_code":  "2700",
-        "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-08 09:00:02",
+        "captured_at":  "2026-11-08 10:00:02",
         "price_eur":  1.647
     },
     {
@@ -32,8 +32,8 @@
         "address":  "Günser Straße 92",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-08 09:00:02",
-        "price_eur":  1.652
+        "captured_at":  "2026-11-08 10:00:02",
+        "price_eur":  1.651
     },
     {
         "station_id":  1354928,
@@ -41,7 +41,7 @@
         "address":  "Puchberger Straße 1",
         "postal_code":  "2700",
         "city":  "Wiener Neustadt",
-        "captured_at":  "2026-11-08 09:00:02",
+        "captured_at":  "2026-11-08 10:00:02",
         "price_eur":  1.658
     },
     {
@@ -50,7 +50,7 @@
         "address":  "Wiener Neustädter Straße 5",
         "postal_code":  "2821",
         "city":  "Lanzenkirchen",
-        "captured_at":  "2026-11-08 09:00:02",
+        "captured_at":  "2026-11-08 10:00:02",
         "price_eur":  1.659
     }
 ]
