@@ -20,19 +20,19 @@
     {
         "station_id":  1354682,
         "name":  "Jet B54",
-        "low_price":  1.627,
-        "low_at":  "2026-11-14 13:00:02"
+        "low_price":  1.626,
+        "low_at":  "2026-11-14 14:00:03"
     },
     {
         "station_id":  1354928,
         "name":  "Jet West",
-        "low_price":  1.628,
-        "low_at":  "2026-11-14 13:00:02"
+        "low_price":  1.627,
+        "low_at":  "2026-11-14 14:00:03"
     },
     {
         "station_id":  1471187,
         "name":  "Turmöl B54",
-        "low_price":  1.623,
-        "low_at":  "2026-11-14 13:00:02"
+        "low_price":  1.622,
+        "low_at":  "2026-11-14 14:00:03"
     }
 ]
